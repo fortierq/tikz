@@ -15,16 +15,20 @@
     \draw [*-stealth, thick] (6.4, 0.5)--(8, 0.5);
     \draw(8, 0) rectangle (9,1);
     \draw(9, 0) rectangle (10,1);
+    \draw [*-stealth, thick] (9.4, 0.5)--(11, 0.5);
+    \draw(11, 0) rectangle (12,1);
+    \draw(12, 0) rectangle (13,1);
     
-    \foreach \pos in {(-.5,1.255),(2.5,1.255),(5.5, 1.255),(8.5, 1.255)}
+    \foreach \pos in {(-.5,1.255),(2.5,1.255),(5.5, 1.255),(8.5, 1.255),(11.5, 1.255)}
         \node at \pos {\cpp{elem}};        
-    \foreach \pos in {(.5, 1.25),(3.5, 1.25),(6.5, 1.25)}
+    \foreach \pos in {(.5, 1.25),(3.5, 1.25),(6.5, 1.25),(9.5, 1.25)}
         \node at \pos {\cpp{next}};
-    \node at (9.5, 0.5) {\cpp{NULL}};
+    \node at (12.5, 0.5) {\cpp{NULL}};
+    \node at (11.5, 0.5) {\cpp{42}};
     \node at (0, -1.2) {\cpp{first}};
     \draw[arc] (0, -1) to (0, -.1);
-    \node at (9, -1.2) {\cpp{last}};
-    \draw[arc] (9, -1) to (9, -.1);
+    \node at (12, -1.2) {\cpp{last}};
+    \draw[arc] (12, -1) to (12, -.1);
 \end{tikzpicture}
 
 \end{document}
