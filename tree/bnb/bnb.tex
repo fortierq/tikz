@@ -1,0 +1,36 @@
+\begin{tikzpicture}[level distance=15mm, font=\small,
+    level 1/.style={sibling distance=7cm},
+    level 2/.style={sibling distance=2.5cm},
+    level 3/.style={sibling distance=2cm}]
+\node {\state{10}{0}{128}}
+child[visible on=<2->] {
+    node {\state{5}{45}{128}}
+    child[visible on=<3->] {
+        node {\state{-3}{...}{...}}
+    }
+    child[visible on=<4->] {
+        node {\state{5}{45}{80}}
+        child[visible on=<5->] {
+            node {\state{2}{80}{80}}
+        }
+        child[visible on=<6->] {
+            node[cross out, draw] {\state{...}{...}{45}}
+        }
+    }
+}
+child[visible on=<7->] {
+    node {\state{10}{0}{83}}
+    child[visible on=<8->] {
+        node {\state{2}{48}{83}}
+        child[visible on=<9->] {
+            node {\state{-1}{...}{...}}
+        }
+        child[visible on=<10->] {
+            node[cross out] {\state{2}{48}{48}}
+        }
+    }
+    child[visible on=<3->] {
+        node [cross out, draw] {\state{10}{0}{35}}
+    }
+};
+\end{tikzpicture}
