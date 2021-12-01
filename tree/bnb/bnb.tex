@@ -1,8 +1,16 @@
+\newcommand{\state}[3]{
+	\begin{tabular}{|c|c|}
+		\hline
+		#1 & \multirow{2}{*}{#3} \\ \cline{1-1}
+        #2 & \\ \hline
+	\end{tabular}
+}
+
 \begin{tikzpicture}[level distance=15mm, font=\small,
     level 1/.style={sibling distance=7cm},
-    level 2/.style={sibling distance=2.5cm},
+    level 2/.style={sibling distance=3cm},
     level 3/.style={sibling distance=2cm}]
-\node {\state{10}{0}{128}}
+\node (r) {\state{10}{0}{128}}
 child[visible on=<2->] {
     node {\state{5}{45}{128}}
     child[visible on=<3->] {
@@ -29,8 +37,10 @@ child[visible on=<7->] {
             node[cross out] {\state{2}{48}{48}}
         }
     }
-    child[visible on=<3->] {
+    child[visible on=<11->] {
         node [cross out, draw] {\state{10}{0}{35}}
     }
 };
+
+\draw[<-] (r) -- ++(2, 0) node[fill=white] {Borne};
 \end{tikzpicture}
