@@ -1,0 +1,17 @@
+\documentclass[]{article}
+\usepackage{base}
+
+\begin{document}
+
+\begin{table}
+    \centering
+\begin{tabular}{c|c|c|c|c|c|c|c}
+    \hline
+    ... & 0 & 1 & 2 & 3 & 4 & 5 & ...\\ \hline
+    \multicolumn{1}{c}{} & \multicolumn{3}{c}{\upbracefill} & \multicolumn{3}{c}{\upbracefill} & \multicolumn{1}{c}{}\\
+    \multicolumn{1}{c}{} & \multicolumn{3}{c}{\cpp{tab[0]}} & \multicolumn{3}{c}{\cpp{tab[1]}} & \multicolumn{1}{c}{}\\
+\end{tabular}
+\caption*{Tableau \cpp{tab} dans la RAM}
+\end{table}
+
+\end{document}
