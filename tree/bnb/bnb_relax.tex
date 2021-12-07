@@ -1,0 +1,34 @@
+\newcommand{\state}[3]{
+	\begin{tabular}{|c|c|}
+		\hline
+		#1 & \multirow{2}{*}{#3} \\ \cline{1-1}
+        #2 & \\ \hline
+	\end{tabular}
+}
+
+\begin{tikzpicture}[level distance=15mm, font=\small,
+    level 1/.style={sibling distance=7cm},
+    level 2/.style={sibling distance=3cm},
+    level 3/.style={sibling distance=2cm}]
+\node (r) {\state{10}{0}{92}}
+child[visible on=<2->] {
+    node {\state{5}{45}{92}}
+    child[visible on=<3->] {
+        node {\state{-3}{...}{...}}
+    }
+    child[visible on=<4->] {
+        node {\state{5}{45}{80}}
+        child[visible on=<5->] {
+            node {\state{2}{80}{80}}
+        }
+        child[visible on=<6->] {
+            node[cross out, draw] {\state{...}{...}{45}}
+        }
+    }
+}
+child[visible on=<7->] {
+    node[cross out, draw] {\state{10}{0}{77}}
+};
+
+\draw[<-] (r) -- ++(2, 0) node[fill=white] {Borne};
+\end{tikzpicture}
