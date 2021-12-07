@@ -1,0 +1,65 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+% Sudoku
+% Author: Roberto Bonvallet
+\usepackage[pdftex,active,tightpage]{preview}
+\usepackage{tikz}
+\PreviewEnvironment{tikzpicture}
+\newcounter{row}
+\newcounter{col}
+
+\newcommand\setrow[9]{
+  \setcounter{col}{1}
+  \foreach \n in {#1, #2, #3, #4, #5, #6, #7, #8, #9} {
+    \edef\x{\value{col} - 0.5}
+    \edef\y{9.5 - \value{row}}
+    \node[anchor=center] at (\x, \y) {\n};
+    \stepcounter{col}
+  }
+  \stepcounter{row}
+}
+
+\begin{document}
+\begin{tikzpicture}[scale=.5]
+	\begin{scope}
+		\draw (0, 0) grid (9, 9);
+		\draw[ultra thick, scale=3] (0, 0) grid (3, 3);
+
+        \foreach \k in {0, 1, 2}
+            \node[anchor=center] at (1.5 + 3*\k, 9.5) {carré \k};
+        \node[anchor=center, rotate=90] at (-.5, 4.5) {carré 4};
+		\setcounter{row}{1}
+        \setrow { }{ 3}{ }{ }{ }{ }{ 0}{ 6}{8}{ }
+        \setrow { }{ }{ 1}{ }{ }{ 7}{ }{ 4}{3}{ }
+        \setrow { }{ }{ 5}{ }{ }{ 4}{ }{ }{7}{ }
+        \setrow { }{ 7}{ }{ }{ 6}{ }{ 8}{ 0}{}{ }
+        \setrow { }{ 4}{ }{ }{ 8}{ }{ }{ 2}{}{ }
+        \setrow { }{ 0}{ 8}{ }{ 5}{ }{ }{ 3}{}{ }
+        \setrow { 2}{ }{ }{ 3}{ }{ }{ 6}{ }{}{ }
+        \setrow { 4}{ 6}{ }{ 0}{ }{ }{ 1}{ }{}{ }
+        \setrow { 8}{ 1}{ 7}{ }{ }{ }{ }{ 5}{}
+        
+		\node[anchor=center] at (4.5, -0.5) {\cpp{m_ex}};
+	\end{scope}
+
+	\begin{scope}[xshift=12cm]
+		\draw (0, 0) grid (9, 9);
+		\draw[ultra thick, scale=3] (0, 0) grid (3, 3);
+
+		\setcounter{row}{1}
+        \setrow { 7}{ 3}{ 4}{ 5}{ 2}{ 1}{ 0}{ 6}{ 8 }
+        \setrow { 6}{ 2}{ 1}{ 8}{ 0}{ 7}{ 5}{ 4}{ 3 }
+        \setrow { 0}{ 8}{ 5}{ 6}{ 3}{ 4}{ 2}{ 1}{ 7 }
+        \setrow { 5}{ 7}{ 2}{ 4}{ 6}{ 3}{ 8}{ 0}{ 1 }
+        \setrow { 3}{ 4}{ 6}{ 1}{ 8}{ 0}{ 7}{ 2}{ 5 }
+        \setrow { 1}{ 0}{ 8}{ 7}{ 5}{ 2}{ 4}{ 3}{ 6 }
+        \setrow { 2}{ 5}{ 0}{ 3}{ 1}{ 8}{ 6}{ 7}{ 4 }
+        \setrow { 4}{ 6}{ 3}{ 0}{ 7}{ 5}{ 1}{ 8}{ 2 }
+        \setrow { 8}{ 1}{ 7}{ 2}{ 4}{ 6}{ 3}{ 5}{ 0 }
+        
+		\node[anchor=center] at (4.5, -0.5) {\cpp{m_ex_solved}};
+	\end{scope}
+
+\end{tikzpicture}
+\end{document}
