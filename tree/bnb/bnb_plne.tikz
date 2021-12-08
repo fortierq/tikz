@@ -7,30 +7,33 @@
 	\end{tabular}
 }
 
-\begin{tikzpicture}[level distance=15mm, font=\small,
-    level 1/.style={sibling distance=8cm},
-    level 2/.style={sibling distance=3cm},
-    level 3/.style={sibling distance=2cm}]
-\node[draw] (r) {
-    $\begin{aligned} \min x_1 - &2x_2 \\ 
-    -4x_1 + 6x_2 &\leq~ 9 \\
+\newcommand{\opt}[4]{
+    \node[visible on=<#1>, above = .3cm of #2, align=center, draw, rounded corners, dashed] {Optimum relaxé : \textbf{#3}\\#4};
+}
+
+\newcommand{\pl}[1] {
+    $\begin{aligned}
+    \min x_1 - &2x_2 \\ 
+    -4x_1 + 6x_2 &\leq 9 \\
     x_1 + x_2 &\leq 4\\
-    x_1, x_2 &\in \N
+    #1
+    x_1, x_2 &\in \N\\
     \end{aligned}$
 }
-child[visible on=<2->] {
-    node (g) {\state{10}{0}{80}}
-    edge from parent node[fill=white, sloped] {$x_2 \leq 0$}
-}
-child[visible on=<3->] {
-    node[cross out, draw] (d) {\state{2}{48}{71.33}}
-    edge from parent node[fill=white, sloped] {$x_2 \geq 1$}
-};
 
-\node[visible on=<1>, above = .3cm of r, align=center, draw] {Optimal du PL relaxé\\$x_1 = 1$, $x_2 = 0.25$, $x_3 = 1$};
+\begin{tikzpicture}[level distance=15mm, font=\small, level 1/.style={sibling distance=8.5cm}]
+    \node[draw] (r) {\pl{}}
+    child[visible on=<3->] {
+        node[draw] (g) {\pl{x_2 &\leq 0\\}}
+        edge from parent node[ below] {$x_2 \leq 0$}
+    }
+    child[visible on=<5->] {
+        node[draw, cross out, rectangle] (d) {\pl{x_2 &\geq 1\\}}
+        edge from parent node[ below] {$x_2 \geq 1$}
+    };
 
-\node[visible on=<2>, above = .3cm of g, align=center, draw] {Optimal du PL relaxé\\$x_1 = 1$, $x_2 = 0$, $x_3 = 1$};
-
-\node[visible on=<3>, above = .3cm of d, align=center, draw] {Optimal du PL relaxé\\$x_1 = 0$, $x_2 = 1$, $x_3 = \frac{2}{3}$};
-
+    \opt{2-}{r}{92}{$x_1 = 1$, $x_2 = 0.25$, $x_3 = 1$}
+    \opt{4-}{g}{80}{$x_1 = 1$, $x_2 = 0$, $x_3 = 1$}
+    \opt{5-}{d}{71.3}{$x_1 = 0$, $x_2 = 1$, $x_3 = \frac{2}{3}$}
+    \node[visible on=<6>, cross out, draw] at (d) {\pl{x_2 &\geq 1\\}};
 \end{tikzpicture}
