@@ -1,0 +1,13 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+
+\begin{tikzpicture}
+	\begin{tikzpicture}[style={->, >=latex}]
+        \draw (0, 0) to (2, 0) node[label=right:$x$] {};
+        \draw (0, 0) to (0, 2) node[label=above:$y$] {};
+    \end{tikzpicture}
+\end{tikzpicture}
+
+\end{document}
