@@ -1,0 +1,33 @@
+\documentclass{presentation}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm}]
+    \node[label=above:$r$] (r) {7}
+    child {
+        node (g) {9}
+        child {
+            node (gg) {5}
+        }
+        child {
+            node (gd) {0}
+            child {node {3}}
+            child[missing] {}
+        }
+    }
+    child {
+        node (d) {2}
+        child {node (dg) {6}}
+        child {node (dd) {8}}
+    };
+    \begin{scope}[visible on=<2>]
+    \draw ($0.5*(gg) + 0.5*(gd)$) circle (1.4cm);
+    \draw ($0.5*(dg) + 0.5*(dd)$) circle (1.4cm);
+    \coordinate (s) at (1, 0);
+    \node[draw=none] at ($(gg) - (s)$) {$g$};
+    \node[draw=none] at ($(dd) + (s)$) {$d$};
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}
