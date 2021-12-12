@@ -1,12 +1,15 @@
 \documentclass[convert={outfile=\jobname.png}]{standalone}
-\usepackage{tikz}
+\usepackage{draw}
 
 \begin{document}
     \def\size{4}
-	\begin{tikzpicture}[point/.style={draw, circle, fill=black, inner sep=2pt},style={->, >=latex}]
-        \draw (0, 0) node[point, label=below:$r$] (r) {} --++ (\size, 0) node[label=right:$x$] {};
-        \draw (r) --++ (0, \size) node[label=above:$y$] {};
-        \draw[<->] (r) to node[sloped, fill=white] {$d$} (.7*\size, .5*\size) node[point, label=right:$p$] {};
+    \def\a{.2}
+	\begin{tikzpicture}
+        \draw[arcthin] (0, 0) node[point, label=below:$r$] (r) {} --++ (\size, 0) node[label=right:$x$] {};
+        \draw[arcthin] (r) --++ (0, \size) node[label=above:$y$] {};
+        \draw[double] (r) to node[sloped, fill=white] {$d$} (.7*\size, .7*\size) node[point, label=right:$p$] {};
+        \draw[arcthin] (\a*\size,0) arc (0:45:\a*\size);
+        \node at (.15+\a*\size, .5*\a*\size) {$a$};
     \end{tikzpicture}
 
 \end{document}
