@@ -1,13 +1,14 @@
 \documentclass[convert={outfile=\jobname.png}]{standalone}
 \usepackage{base}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
 
 \begin{document}
-
-\begin{tikzpicture}
-	\begin{tikzpicture}[style={->, >=latex}]
-        \draw (0, 0) to (2, 0) node[label=right:$x$] {};
-        \draw (0, 0) to (0, 2) node[label=above:$y$] {};
+    \def\size{4}
+	\begin{tikzpicture}[point/.style={draw, circle, fill=black, inner sep=2pt},style={arrowhead=1cm, ->, >=latex}]
+        \draw (0, 0) node[point, label=below:$r$] (r) {} --++ (\size, 0) node[label=right:$x$] {};
+        \draw (r) --++ (0, \size) node[label=above:$y$] {};
+        \draw[<->] (r) to node[sloped, fill=white] {$d$} (.7*\size, .5*\size) node[point, label=right:$p$] {};
     \end{tikzpicture}
-\end{tikzpicture}
 
 \end{document}
