@@ -1,10 +1,10 @@
-\documentclass{presentation}
+\documentclass[convert={outfile=\jobname.png}]{standalone}
 \usepackage{draw}
 
 \begin{document}
 
 \begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm}]
-    \node[label=above:$r$] (r) {7}
+    \node (r) {$r$}
     child {
         node (g) {9}
         child {
@@ -12,7 +12,7 @@
         }
         child {
             node (gd) {0}
-            child {node {3}}
+            child {node (gdg) {3}}
             child[missing] {}
         }
     }
@@ -21,13 +21,12 @@
         child {node (dg) {6}}
         child {node (dd) {8}}
     };
-    \begin{scope}[visible on=<2>]
-    \draw ($0.5*(gg) + 0.5*(gd)$) circle (1.4cm);
-    \draw ($0.5*(dg) + 0.5*(dd)$) circle (1.4cm);
-    \coordinate (s) at (1, 0);
-    \node[draw=none] at ($(gg) - (s)$) {$g$};
-    \node[draw=none] at ($(dd) + (s)$) {$d$};
-    \end{scope}
+    % \def\s{0.5};
+    % \coordinate (sx) at (\s, 0);
+    % \coordinate (sy) at (0, \s);
+    % \coordinate (sxy) at (-0.7*\s, 0.7*\s);
+    % \draw[arc] ($(r) + (sxy)$) to ($(g) + (sxy)$);
+    \draw[arc, semithick] (r) edge (g) (g) edge (gg) (gg) edge (gd) (gd) edge (gdg);
 \end{tikzpicture}
 
 \end{document}
