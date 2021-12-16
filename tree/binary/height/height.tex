@@ -1,0 +1,23 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{document}
+
+% draw, regular polygon, regular polygon sides = 3, inner sep = 2pt
+
+\begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=5cm, level distance=1.5cm}, emph/.style={edge from parent/.style={red,thick,draw}},
+    edge from parent path = {(\tikzparentnode) -- (\tikzchildnode.north)}]
+    \node[vertex] {$r$}
+    child[emph] {
+        node[minimum size=50, label=left:$g$] (g) {}
+        edge from parent node[draw=none, label=above:$C$] {}
+    }
+    child {
+        node[minimum size=50, label=right:$d$] {}
+    };
+    \draw[decorate, decoration={snake}, red, thick] (g.north) -- (g.south);
+    \node[fill=white] at ($(g.north)$) {$r_g$};
+\end{tikzpicture}
+
+\end{document}
