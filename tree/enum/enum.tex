@@ -1,0 +1,64 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\def\sz{.1}
+\def\skip{.05}
+
+\begin{document}
+
+\begin{minipage}{\sz\textwidth}
+    \begin{tikzpicture}[every node/.style={vertex}]
+        \node (r) {} 
+        child { node {}
+            child[missing] { node {}}
+            child[missing] { node {}}
+        }
+        child { node {}};
+    \end{tikzpicture}
+\end{minipage}\hspace{\skip\textwidth}
+
+\begin{minipage}{\sz\textwidth}
+    \begin{tikzpicture}[every node/.style={vertex}]
+        \node (r) {} 
+        child { node {}
+            child { node {}}
+            child[missing] { node {}}
+        }
+        child[missing] { node {}};
+    \end{tikzpicture}
+\end{minipage}\hspace{\skip\textwidth}
+
+\begin{minipage}{\sz\textwidth}
+    \begin{tikzpicture}[every node/.style={vertex}]
+        \node (r) {} 
+        child { node {}
+            child[missing] { node {}}
+            child { node {}}
+        }
+        child[missing] { node {}};
+    \end{tikzpicture}
+\end{minipage}\hspace{\skip\textwidth}
+
+\begin{minipage}{\sz\textwidth}
+    \begin{tikzpicture}[every node/.style={vertex}]
+        \node (r) {} 
+        child[missing] { node {}}
+        child { node {}
+            child { node {}}
+            child[missing] { node {}}
+        };
+    \end{tikzpicture}
+\end{minipage}\hspace{\skip\textwidth}
+
+\begin{minipage}{\sz\textwidth}
+    \begin{tikzpicture}[every node/.style={vertex}]
+        \node (r) {} 
+        child[missing] { node {}}
+        child { node {}
+            child[missing] { node {}}
+            child { node {}}
+        };
+    \end{tikzpicture}
+\end{minipage}\hspace{\skip\textwidth}
+
+\end{document}
