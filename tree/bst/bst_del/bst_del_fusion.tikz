@@ -1,0 +1,18 @@
+\begin{center}
+\begin{tikzpicture}[big/.style={minimum size=2cm}, every node/.style={vertex}, level 1/.style={sibling distance=5cm, level distance=1.5cm}]
+    \node (r) {$r$}
+    child {
+        node[big, label=left:$g$] (g) {}
+    }
+    child {
+        node[big, label=right:$d$] (d) {}
+    };
+    \begin{scope}[visible on=<2->]
+        \node[cross out] at (r) {};
+        \node[big, cross out, thick] at (d) {};
+        \node[below right = .5cm of g, big, dashed] (dd) {};
+        \draw[>=triangle 45, ->, dashed] (d.south west) to[out=-135, in=0] (dd.east);
+    \end{scope}
+    \draw (g.south east) -- (dd.north west);
+\end{tikzpicture}
+\end{center}
