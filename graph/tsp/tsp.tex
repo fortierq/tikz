@@ -1,0 +1,19 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\def\s{3}
+\begin{tikzpicture}[every node/.style={vertex}]
+    \node (a) at (0, 0) {};
+    \node (b) at (0, \s) {};
+    \node (c) at (\s, 0) {};
+    \node (d) at (\s, \s) {};
+    \node (e) at (2*\s, .5*\s) {};
+    \foreach \u/\v/\w in {{a/c/4}, {a/b/1}, {b/d/5}, {c/d/3}, {c/e/3}, {d/e/2}}
+        \draw (\u) to node[fill=white, draw=none] {$\w$} (\v);
+    \draw (a) to node[fill=white, draw=none, near end] {$4$} (d);
+    \draw (b) to node[fill=white, draw=none, near end] {$2$} (c);
+\end{tikzpicture}
+
+\end{document}
