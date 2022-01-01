@@ -1,0 +1,27 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm},emph/.style={edge from parent/.style={red,very thick,draw}},
+    norm/.style={vertex, thin, black, edge from parent/.style={black,thin,draw}}]
+    \node[red, text=black, very thick] (r) {$0$}
+    child[emph] {
+        node[red, text=black, very thick] (g) {$1$}
+        child[norm] {
+            node[] (gg) {$2$}
+        }
+        child {
+            node (gd) {$3$}
+            child {node {$4$}}
+            child[missing] {}
+        }
+    }
+    child[emph] {
+        node[red, text=black, very thick] (d) {$5$}
+        child[emph] {node[red, text=black, very thick] (dg) {$6$}}
+        child[norm] {node (dd) {$7$}}
+    };
+\end{tikzpicture}
+
+\end{document}
