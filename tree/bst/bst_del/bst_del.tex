@@ -1,0 +1,114 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style = {minimum size=2em, vertex}]] 
+    \node[bottom color=white!30!red, minimum size=2em] {?}
+    child { node {1} 
+        child { node {-2} }
+        child { node {3} 
+            child { node {2} }
+            child { node {4} } } }
+    child { node {11} 
+        child { node {8} 
+            child { node  {7} } child[missing] {node {}}}
+        child { node {23} } };
+\end{tikzpicture}
+
+    \begin{tikzpicture}[tree layout, level distance=12mm, sibling distance=3.8em,
+    every node/.style = {minimum size=2em, shape=circle, draw, align=center, top color=white, bottom color=blue!20}]]
+    \node[bottom color=white!30!red, minimum size=2em] {?}
+    child { node {1} 
+        child { node {-2} }
+        child { node {3} 
+            child { node {2} }
+            child { node {4} } } }
+    child { node {11} 
+        child { node {8} 
+            child { node {7} } child[missing] {node {}}}
+        child { node {23} } };
+    \end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Arbre binaire de recherche (ABR)}
+Supprimer un élément \verb|e| (ici 6) dans un ABR:
+\begin{center}
+    \begin{tikzpicture}[tree layout, level distance=12mm, sibling distance=3.8em,
+    every node/.style = {minimum size=2em, shape=circle, draw, align=center, top color=white, bottom color=blue!20}]]
+    \node[bottom color=white!30!red] (r) {?}
+    child { node {1} 
+        child { node {-2} }
+        child { node {3} 
+            child { node {2} }
+            child { node[shape=circle, draw, align=center, top color=white, bottom color=black!20!green] (f) {4} } } }
+    child { node {11} 
+        child { node {8} 
+            child { node {7} } child[missing] {node {}}}
+        child { node {23} } };
+    \draw[->, >=latex, thick] (-.8,-3.5) to[bend right = 20] (0,-.5);
+    \end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Arbre binaire de recherche}
+Supprimer un élément \verb|e| (ici 6) dans un ABR:
+\begin{center}
+    \begin{tikzpicture}[tree layout, level distance=12mm, sibling distance=3.8em,
+    every node/.style = {minimum size=2em, shape=circle, draw, align=center, top color=white, bottom color=blue!20}]]
+    \node[shape=circle, draw, align=center, top color=white, bottom color=black!20!green] {4}
+    child { node {1} 
+        child { node {-2} }
+        child { node {3} 
+            child { node {2} } child[missing] {node {}}} }
+    child { node {11} 
+        child { node {8} 
+            child { node {7} } child[missing] {node {}}}
+        child { node {23} } };
+    \end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{tikzpicture}[level distance=12mm, sibling distance=3.8em,
+    every node/.style = {vertex}]]
+    \node[bottom color=white!30!red] {?}
+    child { node {1} 
+        child { node {-2} }
+        child { node {3} 
+            child { node {2} }
+            child { node {4} } } }
+    child { node {11} 
+        child { node {8} 
+            child { node {7} } child[missing] {node {}}}
+        child { node {23} } };
+\end{tikzpicture}
+
+% \begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm}]
+%     \node (r) {$4$}
+%     child {
+%         node (g) {$3$}
+%         child {
+%             node (gg) {$1$}
+%             child[] {node {$0$}}
+%             child {node {$2$}}
+%         }
+%         child[missing] {
+%             node (gd) {$3$}
+%         }
+%     }
+%     child {
+%         node (d) {$6$}
+%         child {node (dg) {$5$}}
+%         child {
+%             node (dd) {$8$}
+%             child[missing] {node {$7$}}
+%             child {node {$9$}}
+%         }
+%     };
+% \end{tikzpicture}
+
+\end{document}

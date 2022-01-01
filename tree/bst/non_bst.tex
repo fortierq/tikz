@@ -4,26 +4,26 @@
 \begin{document}
 
 \begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm}]
-    \node {$0$}
+    \node (r) {$5$}
     child {
-        node {$1$}
+        node (g) {$3$}
         child {
-            node {$2$}
+            node (gg) {$1$}
+            child[] {node {$0$}}
+            child {node {$2$}}
         }
-        child {
-            node {$9$}
-        }
-        child {
-            node {$7$}
+        child[missing] {
+            node (gd) {$3$}
         }
     }
     child {
-        node {$3$}
-    }    
-    child {
-        node {$5$}
-        child {node  {$6$}}
-        child {node  {$7$}}
+        node (d) {$6$}
+        child {node (dg) {$4$}}
+        child {
+            node (dd) {$8$}
+            child[missing] {node {$7$}}
+            child {node {$9$}}
+        }
     };
 \end{tikzpicture}
 

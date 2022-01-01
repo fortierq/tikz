@@ -6,11 +6,11 @@
 \begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm}]
     \node (r) {$4$}
     child {
-        node (g) {$2$}
+        node (g) {$3$}
         child {
-            node (gg) {$0$}
-            child[missing] {}
-            child {node {$1$}}
+            node (gg) {$1$}
+            child[] {node {$0$}}
+            child {node {$2$}}
         }
         child[missing] {
             node (gd) {$3$}
