@@ -9,8 +9,9 @@
     \node (b) at (0, \s) {};
     \node (c) at (\s, 0) {};
     \node (d) at (\s, \s) {};
-    \node (e) at (2*\s, .5*\s) {};
-    \foreach \u/\v/\w in {{a/c/4}, {a/b/1}, {b/d/5}, {c/d/3}, {c/e/3}, {d/e/2}}
+    \node (e) at (2*\s, 0) {};
+    \node (f) at (2*\s, \s) {};
+    \foreach \u/\v/\w in {{a/c/4}, {a/b/1}, {b/d/5}, {c/d/3}, {c/e/3}, {d/e/2}, {e/f/3}, {e/f/1}, {d/f/4}}
         \draw (\u) to node[fill=white, draw=none] {$\w$} (\v);
     \draw (a) to node[fill=white, draw=none, near end] {$4$} (d);
     \draw (b) to node[fill=white, draw=none, near end] {$2$} (c);
