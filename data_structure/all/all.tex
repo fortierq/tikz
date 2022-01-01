@@ -1,0 +1,23 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \draw(2, 0) rectangle (4,1);
+    \draw[-](3,0)--(3,1);
+    \draw [*-stealth, thick] (3.4, 0.5)--(5, 0.5);
+    \draw(5, 0) rectangle (6,1);
+    \draw(6, 0) rectangle (7,1);
+    \draw [*-stealth, thick] (6.4, 0.5)--(8, 0.5);
+    \draw(8, 0) rectangle (9,1);
+    \draw(9, 0) rectangle (10,1);
+    
+    \foreach \pos in {(2.5,1.255),(5.5, 1.255),(8.5, 1.255)}
+        \node at \pos {\cpp{elem}};        
+    \foreach \pos in {(3.5, 1.25),(6.5, 1.25)}
+        \node at \pos {\cpp{next}};
+    \node at (9.5, 0.5) {\cpp{NULL}};
+\end{tikzpicture}
+
+\end{document}
