@@ -1,0 +1,13 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{ganttchart}{7}{17}
+        \ganttbar{}{8}{9} \ganttbar{}{11}{16} \\
+        \ganttbar{}{8}{12} \ganttbar{}{14}{16}
+    \end{ganttchart}
+\end{tikzpicture}
+
+\end{document}
