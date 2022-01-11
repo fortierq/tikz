@@ -1,26 +1,24 @@
 \documentclass[convert={outfile=\jobname.png}]{standalone}
-\usepackage{draw}
+
+\usepackage{tikz}
 
 \begin{document}
 
-\begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm}]
-    \node (r) {$0$}
-    child {
-        node (g) {$1$}
-        child {
-            node (gg) {$2$}
-        }
-        child {
-            node (gd) {$3$}
-            child {node {$4$}}
-            child[missing] {}
-        }
-    }
-    child {
-        node (d) {$5$}
-        child {node (dg) {$6$}}
-        child {node (dd) {$7$}}
-    };
+\begin{tikzpicture}[every node/.style={draw}]
+\node {$2$}
+child { node {$1$};
+child { node {$0$};
+child[missing] {}
+child[missing] {}
+}
+child[missing] {}
+}
+child { node {$3$};
+child[missing] {}
+child { node {$5$};
+child[missing] {}
+child[missing] {}
+}
+};
 \end{tikzpicture}
-
 \end{document}

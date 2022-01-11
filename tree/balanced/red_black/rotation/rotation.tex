@@ -1,0 +1,30 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}, level 3/.style={sibling distance=1cm}]
+    \node[draw, circle, minimum size=.6cm, fill = black, label = left:$r$] (r) at (0, 0) {};
+    \node[draw, circle, minimum size=.6cm, fill = red, label = left:$gr$] (gr) at (-1.5, -1.5) {};
+    \node[draw, circle, minimum size=1.1cm, fill = red, label = left:$gg$] (gg) at (-2.5, -3) {};
+    \node[draw, circle, minimum size=1.1cm] (gd) at (-.5, -3) {$gd$};
+    \node[draw, circle, minimum size=1.1cm] (d) at (1.5, -1.5) {$d$};
+    \draw (r) to (gr);
+    \draw (r) to (d);
+    \draw (gr) to (gg);
+    \draw (gr) to (gd);
+    \draw[->, >=latex] (2.5, -.5) to[bend left = 15]  (4.5, -.5);
+    \begin{scope}[xshift = 7cm]
+    \node[draw, circle, fill = red, minimum size=.7cm, label = left:$gr$] (gr) at (0, 0) {};
+    \node[draw, circle, fill = black, minimum size=1.1cm, label = left:$gg$] (gg) at (-1.5, -1.5) {};
+    \node[draw, circle, minimum size=1.1cm] (d) at (2.5, -3) {$d$};
+    \node[draw, circle, minimum size=1.1cm] (gd) at (.5, -3) {$gd$};
+    \node[draw, circle, minimum size=.7cm, fill=black, label = right:$r$] (r) at (1.5, -1.5) {};
+    \draw (gr) to (r);
+    \draw (gr) to (gg);
+    \draw (r) to (d);
+    \draw (r) to (gd);
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}
