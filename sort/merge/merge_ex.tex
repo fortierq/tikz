@@ -1,0 +1,21 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \node (n) at (0, 0) {[\r{5}, \r 1, \r{-4}, \b 2, \b{-8}, \b 7]};
+        \node (n1) at (-3, -2) {[\r{5}, \r 1, \r{-4}]};
+        \draw[->, >=latex, thick] (n) to (n1); 
+        \node (n2) at (3, -2) {[\b 2, \b{-8}, \b 7]};
+        \draw[->, >=latex, thick] (n) to (n2); 
+        \node (n3) at (-3, -4) {[\r{-4}, \r 1, \r 5]};
+        \draw[->, >=latex, thick] (n1) to node[midway, label=left:{Appel récursif}] {} (n3); 
+        \node (n4) at (3, -4) {[\b{-8}, \b 2, \b 7]};
+        \draw[->, >=latex, thick] (n2) to node[midway, label=right:{Appel récursif}] {} (n4); 
+        \node (n5) at (0, -6) {[\b{-8}, \r{-4}, \r 1, \b 2, \r 5, \b 7]};
+        \draw[->, >=latex, thick] (n3) to (n5); 
+        \draw[->, >=latex, thick] (n4) to (n5); 
+        \node at (0, -5) {Fusion};
+    \end{tikzpicture}
+\end{document}
