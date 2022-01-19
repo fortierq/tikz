@@ -1,0 +1,23 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+
+\usepackage{heapbase}
+
+\begin{document}
+
+\begin{tikzpicture}[tree, every node/.style = {vertex}]]
+    \node {23}
+    child { node {5} 
+        child { node {3} 
+            child { node {2} }
+            child { node {-8} } }
+        child { node {-2} 
+            child { node {-6} } 
+            child { node {-4} } } }
+    child { node {14}
+        child { node {7} 
+            child { node {5} } 
+                child[missing] {node {}}}
+        child { node {2} } };
+\end{tikzpicture}
+
+\end{document}
