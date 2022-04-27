@@ -1,0 +1,13 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\tikz \graph [spring layout, nodes={vertex}] {
+    0 -- 1 --2 -- 0;
+    3 -- 4;
+    5;
+};
+
+\end{document}
