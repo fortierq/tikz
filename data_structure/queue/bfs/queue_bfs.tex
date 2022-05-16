@@ -1,0 +1,14 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=0cm]
+    \draw[->, >=latex] (-3.5, 0) to (-2.5, 0);
+    \node[rectangle, draw, minimum width=4cm, minimum height=.6cm] (inf) at (0, 0) {sommets à distance $d + 1$};  
+    \node[rectangle, draw, minimum width=4cm, minimum height=.6cm] (sup) [right=of inf.east] {sommets à distance $d$};
+    \draw[->, >=latex] (6.5, 0) to (7.5, 0);
+\end{tikzpicture}
+
+\end{document}

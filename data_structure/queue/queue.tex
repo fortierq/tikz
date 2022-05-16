@@ -1,0 +1,14 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=0cm]
+    \node[rectangle, draw, minimum width=4cm, minimum height=.6cm] (inf) at (2, 0) {};
+    \node at (-1.5, 0) {ajout};
+    \node at (6, 0) {extraction};
+    \draw[->, >=latex] (-1, 0) to (0, 0);
+    \draw[->, >=latex] (4, 0) to (5, 0);
+\end{tikzpicture}
+
+\end{document}
