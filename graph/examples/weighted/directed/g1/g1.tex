@@ -1,0 +1,18 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[]
+    \foreach \pos/\name/\w/\pred in {
+            {(0,5)/a/$0$/-},{(2.5,5)/b/$\infty$/-}, {(5,5)/c/$\infty$/-},
+            {(0,2.5)/d/$\infty$/-}, {(2.5,2.5)/e/$\infty$/-}, {(5,2.5)/f/$\infty$/-}}
+    \node[vertex] (\name) at \pos {$\name$};
+    
+    \foreach \source/ \dest /\w/\style in {
+            a/b/0/, b/c/1/, a/d/5/, e/d/1/, b/e/3/, b/f/4/above, f/e/-3/, f/c/-1/}
+    \draw[arc] (\source) to node[fill=white] {$\w$} (\dest);
+\end{tikzpicture}
+
+\end{document}
