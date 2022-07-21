@@ -1,0 +1,41 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{code}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={vertex}]
+    \def\x{6}
+
+    \node at (0, 0) {\ocaml{::}} 
+    child {
+        node {\ocaml{1}}
+    }
+    child {
+        node {\ocaml{::}}
+        child {node {\ocaml{2}}}
+        child {
+            node {\ocaml{::}}
+            child {node {\ocaml{3}}}
+            child {node {\ocaml{[]}}}
+        }
+    };
+    
+    \node at (\x, 0) {\ocaml{f}}
+    child {
+        node {\ocaml{1}}
+    }
+    child {
+        node {\ocaml{f}}
+        child {node {\ocaml{2}}}
+        child {
+            node {\ocaml{f}}
+            child {node {\ocaml{3}}}
+            child {node {\ocaml{a}}}
+        }
+    };
+
+    \draw[arc] (.5, .5) to[bend left=30] node[draw=none, fill=white] {\ocaml{fold_right f l a}} (\x - 0.5, .5);
+\end{tikzpicture}
+
+\end{document}
