@@ -1,0 +1,22 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usetikzlibrary{decorations.pathreplacing}
+
+\begin{document}
+
+\def\h{10}
+\def\w{4}
+
+\begin{tikzpicture}[]
+    \draw (0,0) rectangle (\w, \h);
+    \foreach \y/\t in {0/code, 1/variables globales, 2/tas (heap), 3/, 4/pile (stack)} {
+            \draw (0, \y*\h/5) to (\w, \y*\h/5);
+            \node at (\w/2, \y*\h/5 + \h/10) {\t};
+        }
+    \draw[arc] (\w/2, 3*\h/5) to (\w/2, 3*\h/5 + \h/20);
+    \draw[arc] (\w/2, 4*\h/5) to (\w/2, 4*\h/5 - \h/20);
+    \draw[decorate,decoration={brace, amplitude=7pt}, line width=.5pt] (-\w/10, 0) to node[label={[label distance=.5cm]left:RAM}] {} (-\w/10, \h);
+\end{tikzpicture}
+
+\end{document}
