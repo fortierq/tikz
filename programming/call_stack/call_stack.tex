@@ -1,0 +1,27 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usetikzlibrary{decorations.pathreplacing}
+
+\begin{document}
+
+\def\h{10}
+\def\w{4}
+\definecolor{lr}{rgb}{1.0, 0.92, 0.92}
+\definecolor{lb}{rgb}{0.92, 0.92, 1}
+
+\begin{tikzpicture}[]
+    \draw[fill=lr] (0, \h/7) rectangle (\w, 4*\h/7);
+    \draw[fill=lb] (0, 4*\h/7) rectangle (\w, 7*\h/7);
+    \draw (0,0) rectangle (\w, \h);
+    \foreach \y/\t in {0/, 1/variables de $g$, 2/adresse de retour, 3/arguments de $g$, 4/variables de $f$, 5/adresse de retour, 6/arguments de $f$} {
+            \draw (0, \y*\h/7) to (\w, \y*\h/7);
+            \node at (\w/2, \y*\h/7 + \h/14) {\t};
+        }
+    \draw[arc] (\w/2, \h/7) to (\w/2, \h/7 - \h/14);
+    \foreach \n/\f in {0/$g$, 1/$f$}
+    \draw[decorate,decoration={brace, amplitude=7pt}, line width=.5pt] (-\w/10, \h/7 + 3*\n*\h/7 + 0.1) to node[label={[label distance=.4cm, align=center]left:stack frame\\ de $\f$}] {} (-\w/10, 4*\h/7 + 3*\n*\h/7 - 0.1);
+    \draw[decorate,decoration={brace, amplitude=7pt}, line width=.5pt] (\w + \w/10, \h) to node[label={[label distance=.5cm]right:stack}] {} (\w + \w/10, 0);
+\end{tikzpicture}
+
+\end{document}
