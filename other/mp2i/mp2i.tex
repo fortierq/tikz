@@ -1,10 +1,9 @@
 \documentclass[convert={outfile=\jobname.png}]{standalone}
 \usepackage{base}
 \usepackage{draw}
-\usetikzlibrary{backgrounds}
 
 \begin{document}
-    \begin{tikzpicture}[background rectangle/.style={fill={rgb:red,64;green,81;blue,181}}, show background rectangle, every node/.style={vertex, minimum size=20pt, fill=white}]
+    \begin{tikzpicture}[every node/.style={vertex, minimum size=20pt, fill=white}]
         \def\h{1}
 
         \foreach \x/\y in {0/0, 0/4, 1/2, 2/4, 2/0}
