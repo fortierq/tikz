@@ -9,24 +9,24 @@
 
         \foreach \x/\y in {0/0, 0/4, 1/2, 2/4, 2/0}
             \node[vertex] (M\x-\y) at (\x*\h, \y*\h) {};
-        \draw[color=white, line width=3pt] (M0-0) -- (M0-4) -- (M1-2) -- (M2-4) -- (M2-0);
+        \draw[color=white, line width=5pt] (M0-0) -- (M0-4) -- (M1-2) -- (M2-4) -- (M2-0);
 
         \begin{scope}[xshift=4cm]
             \foreach \x/\y in {0/0, 0/4, 2/4, 2/2, 0/2}
                 \node[vertex] (P\x-\y) at (\x*\h, \y*\h) {};
-            \draw[color=white, line width=3pt] (P0-0) -- (P0-2) -- (P0-4) -- (P2-4) -- (P2-2) -- (P0-2);
+            \draw[color=white, line width=5pt] (P0-0) -- (P0-2) -- (P0-4) -- (P2-4) -- (P2-2) -- (P0-2);
         \end{scope}
 
         \begin{scope}[xshift=8cm]
             \foreach \x/\y in {0/4, 2/4, 2/2, 0/2, 0/0, 2/0}
                 \node[vertex] (D\x-\y) at (\x*\h, \y*\h) {};
-            \draw[color=white, line width=3pt] (D0-4) -- (D2-4) -- (D2-2) -- (D0-2) -- (D0-0) -- (D2-0);
+            \draw[color=white, line width=5pt] (D0-4) -- (D2-4) -- (D2-2) -- (D0-2) -- (D0-0) -- (D2-0);
         \end{scope}
 
         \begin{scope}[xshift=12cm]
             \node (I0) at (0, 0) {};
             \node (I1) at (0, 4) {};
-            \draw[color=white, line width=3pt] (I0) -- (I1);
+            \draw[color=white, line width=5pt] (I0) -- (I1);
         \end{scope}
     \end{tikzpicture}
 \end{document}
