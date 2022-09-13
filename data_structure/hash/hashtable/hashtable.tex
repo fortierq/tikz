@@ -1,0 +1,39 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows}
+
+\tikzset{listnode/.style={rectangle split, rectangle split parts=2,
+    draw, rectangle split horizontal}}
+\tikzset{hashtable/.style={rectangle split, rectangle split parts=5,
+    draw, rectangle split}}
+\newcommand\boxsize{13mm}
+\tikzset
+  {cell/.style=
+    {inner sep=0pt, minimum width=\boxsize,
+    minimum height=6mm, fill=white},
+   ptr/.style={Circle-stealth,shorten <=-1.5pt}
+  }
+\newcommand\pointer[3][]%
+  {\node[draw,cell,#1] (#2) {};
+   \ifthenelse{\isempty{#3}}%
+     {\draw (#2.south west)--(#2.north east);}%
+     {\draw[ptr] (#2.center)--(#3);}
+  }
+\newcommand{\element}[3][] {
+    \node[draw,cell,#1] (#2) {#3};
+    \node[draw,cell,xshift=9mm, minimum width=5mm] (#2ptr) at (#2) {};
+}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[cloud, draw, minimum width=4cm, minimum height=3cm, fill=gray!10] (cloud) at (-1,0) {};
+    \node[below of=cloud, node distance=2cm] {Clés};
+    \node[hashtable,inner sep=8pt] (H) at (4, 0) {};
+    \coordinate (v) at ($(H.text split)!.5!(H.two split)$);
+    \node at (v) {$v$};
+    \node[draw, label=below:$k$, fill=black, circle, inner sep=1pt, minimum size=1pt] (k) at (0, 0) {};
+    \draw[arc, dashed] (k) to[bend left] node[label=above:$h$] {} (3.6, .8);
+\end{tikzpicture}
+\end{document}
