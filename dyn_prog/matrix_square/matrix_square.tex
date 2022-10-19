@@ -1,0 +1,21 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+\usetikzlibrary{matrix}
+
+\begin{document}
+    \def\size{4}
+    \def\a{.2}
+	$$M = 
+    \begin{tikzpicture}[baseline=(math-axis),every right delimiter/.style={xshift=-3pt},every left delimiter/.style={xshift=3pt}]%
+        \matrix [matrix of math nodes,left delimiter=(,right delimiter=)] (matrix)
+        {
+            |(m11)| 1 & |(m12)| 0 & |(m13)| 0 & |(m14)| 0 \\
+            |(m21)| 0 & |(m22)| 0 & |(m23)| 1 & |(m24)| 1 \\
+            |(m31)| 0 & |(m32)| 1 & |(m33)| 1 & |(m34)| 1 \\
+            |(m41)| 0 & |(m42)| 1 & |(m43)| 0 & |(m44)| 1 \\
+        };
+        \draw[dashed] (m23.north west) -- (m24.north east) -- (m34.south east) -- (m33.south west) -- cycle;
+        \coordinate (math-axis) at ($(matrix.center)+(0em,-0.25em)$);
+        \end{tikzpicture}
+    $$
+\end{document}
