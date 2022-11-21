@@ -1,0 +1,19 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style = {vertex}, level 1/.style={sibling distance=3.5cm}, level 2/.style={sibling distance=1.8cm}]
+    \node {0}
+    child { node {1} 
+        child { node {3} }
+        child { node {2} } 
+    }
+    child { node {4}
+        child { node {5} }
+        child[missing] {node {}}
+    };
+\end{tikzpicture}
+
+\end{document}
