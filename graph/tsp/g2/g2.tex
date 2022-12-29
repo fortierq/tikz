@@ -1,0 +1,22 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\def\s{3}
+\begin{tikzpicture}[every node/.style={vertex}]
+    \node (a) at (0, 0) {$a$};
+    \node (b) at (0, \s) {$b$};
+    \node (c) at (\s, 0) {$c$};
+    \node (d) at (\s, \s) {$d$};
+    \node (e) at (2*\s, 0) {$e$};
+    \node (f) at (2*\s, \s) {$f$};
+    \node (g) at (3*\s, 0) {$g$};
+    \node (h) at (3*\s, \s) {$h$};
+    \foreach \u/\v/\w in {{a/c/4}, {a/b/3}, {b/d/5}, {c/d/3}, {c/e/3}, {d/e/2}, {e/f/5}, {d/f/4}, {e/g/2}, {e/h/4}, {g/h/6}}
+        \draw (\u) to node[fill=white, draw=none] {$\w$} (\v);
+    \draw (a) to node[fill=white, draw=none, near end] {$4$} (d);
+    \draw (b) to node[fill=white, draw=none, near end] {$2$} (c);
+\end{tikzpicture}
+
+\end{document}

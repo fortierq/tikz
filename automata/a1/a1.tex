@@ -1,0 +1,16 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state, initial] (q1) {$0$};
+	\node[state, accepting, right of=q1] (q2) {$1$};
+	\path (q1) edge[loop above] node{$b$} (q1)
+	(q1) edge[bend left, above] node{$a$} (q2)
+	(q2) edge[loop above] node{$b$} (q2);
+	\path (q2) edge[bend left, below] node{$a$} (q1);
+\end{tikzpicture}
+
+\end{document}
