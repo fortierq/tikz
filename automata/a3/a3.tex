@@ -1,0 +1,17 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state, initial] (0) {$0$};
+	\node[state, right of=0] (1) {$1$};
+	\node[state, accepting, right of=1] (2) {$2$};
+	\draw (0) edge[above] node{$a$} (1)
+	(1) edge[loop above] node{$b$} (1)
+	(1) edge[loop below] node{$a$} (1);
+	\draw (1) edge[above] node{$b$} (2);
+\end{tikzpicture}
+
+\end{document}
