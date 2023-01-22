@@ -5,9 +5,9 @@
 \begin{document}
 
 \begin{tikzpicture}
-    \node[draw] (m) at (0,0) {manger};
-    \node[draw] (j) at (6,0) {jouer};
-    \node[draw] (d) at (3,3) {dormir};
+    \node[draw] (m) at (0,0) {manger (0)};
+    \node[draw] (j) at (6,0) {jouer (1)};
+    \node[draw] (d) at (3,3) {dormir (2)};
     \draw[arc] (m) to[bend left=8] node[fill=white] {$0.3$} (j);
     \draw[arc] (m) to[bend left=12] node[fill=white] {$0.5$} (d);
     \draw[arc] (m) edge[loop left] node[fill=white]{$0.2$} (m);
