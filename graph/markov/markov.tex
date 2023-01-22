@@ -1,0 +1,19 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \def\sz{3}
+    \foreach \pos/\name in {{(0,0)/0},{(0,\sz)/1}, {(\sz,\sz)/3}, {(\sz,0)/2}}
+        \node[vertex] (\name) at \pos {$\name$};
+    \foreach \source/\dest/\p in {{0/1/0.5}, {0/2/0.5}, {1/2/0.3}, {2/3/0.5}, {3/1/0.5}}
+        \draw[arc] (\source) -- node[fill=white] {$\p$} (\dest);
+    \draw[arc] (1) edge[loop above] node[fill=white]{$0.7$} (1);
+    \draw[arc] (3) edge[loop above] node[fill=white]{$0.5$} (3);
+    \draw[arc] (2) edge[loop right] node[fill=white]{$0.2$} (2);
+    \draw[arc] (2) edge[bend left] node[fill=white] {$0.3$} (0);
+\end{tikzpicture}
+
+\end{document}
