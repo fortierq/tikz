@@ -1,0 +1,22 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \node[draw] (m) at (0,0) {manger};
+    \node[draw] (j) at (6,0) {jouer};
+    \node[draw] (d) at (3,3) {dormir};
+    \draw[arc] (m) to[bend left=8] node[fill=white] {$0.3$} (j);
+    \draw[arc] (m) to[bend left=12] node[fill=white] {$0.5$} (d);
+    \draw[arc] (m) edge[loop left] node[fill=white]{$0.2$} (m);
+    \draw[arc] (j) to[bend left=8] node[fill=white] {$0.3$} (m);
+    \draw[arc] (j) to[bend left=12] node[fill=white] {$0.5$} (d);
+    \draw[arc] (j) edge[loop right] node[fill=white]{$0.2$} (j);
+    \draw[arc] (d) to[bend left=12] node[fill=white] {$0.4$} (m);
+    \draw[arc] (d) to[bend left=12] node[fill=white] {$0.1$} (j);
+    \draw[arc] (d) edge[loop right] node[fill=white]{$0.5$} (d);
+\end{tikzpicture}
+
+\end{document}
