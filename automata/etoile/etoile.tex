@@ -7,11 +7,11 @@
 
 \begin{tikzpicture}[automata]
 	\node[state, initial] (q0) at (0, 0) {$q_0$};
-	\node[state, ] (q1) at (3, 0) {$q_1$};
-	\node[state, accepting, ] (q2) at (6, 0) {$q_2$};
-    \draw[arc, snake] (q0) to node[below] {$x$} (q1);
-    \draw[arc, snake] (q1) to node[below] {$z$} (q2);
-    \draw[arc, snake, loop] (q1) to node[] {$y$} (q1);
+	\node[state, ] (q1) at (3, 0) {$q_i$};
+	\node[state, accepting, ] (q2) at (6, 0) {$q_{p}$};
+    \draw[arc, snake] (q0) to node[above] {$x$} (q1);
+    \draw[arc, snake] (q1) to node[above] {$z$} (q2);
+    \draw[arc, snake, loop] (q1) to node[above] {$y$} (q1);
 \end{tikzpicture}
 
 \end{document}
