@@ -1,10 +1,11 @@
 \documentclass[convert={outfile=\jobname.png}]{standalone}
 
-\usepackage{heapbase}
+\usepackage{base}
+\usepackage{draw}
 
 \begin{document}
 
-\begin{tikzpicture}[tree, every node/.style = {vertex}]]
+\begin{tikzpicture}[every node/.style = {vertex}]
     \node {23}
     child { node {5} 
         child { node {3} 

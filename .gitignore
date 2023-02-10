@@ -1,2 +1,5 @@
 _minted*
 *.pdf
+.env
+_minted*
+*.png
