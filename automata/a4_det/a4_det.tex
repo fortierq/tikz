@@ -1,0 +1,22 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state, initial] (1) {$\s{1}$};
+	\node[state, right of=1, accepting] (23) {$\s{2, 3}$};
+	\node[state, below of=23] (E) {$\emptyset$};
+	\node[state, right of=23] (4) {$\s{4}$};
+	\node[state, right of=4] (14) {$\s{1, 4}$};
+	\draw (1) edge[above] node{$a$} (23);
+	\draw (1) edge[left] node{$b$} (E);
+	\draw (23) edge[above] node{$a, b$} (4);
+	\draw (4) edge[above] node{$a$} (E);
+	\draw (4) edge[above, bend left] node{$b$} (14);
+	\draw (14) edge[above, bend left] node{$b$} (4);
+	\draw (14) edge[above, bend right=60] node{$a$} (23);
+\end{tikzpicture}
+
+\end{document}
