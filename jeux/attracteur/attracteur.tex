@@ -1,0 +1,20 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usepackage{code}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \def\n{3}
+    \foreach \x in {0, ..., \n} {
+        \node[vertex] (\x) at (2*\x,0) {$\x$};
+        \def\v{\the\numexpr\n+1+\x}
+        \node[vertex] (\v) at (2*\x,-2) {$\v$};
+    }
+    \foreach \u/\v in {0/5, 0/4, 6/3, 1/4, 4/2, 1/5, 5/3, 2/7, 6/2, 1/6} {
+        \draw[arc] (\u) to (\v);
+    }
+\end{tikzpicture}
+
+\end{document}
