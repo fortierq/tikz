@@ -1,0 +1,49 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usepackage{code}
+
+\begin{document}
+
+\newcommand{\plat}[4]{
+    \foreach \x in {0, ..., #3}{
+            \draw (\x + #1, 0 + #2) -- (\x + #1, #2 + #4);
+        }
+    \foreach \y in {0, ..., #4}{
+            \draw (#1, #2 + \y) -- (#1 + #3, #2 + \y);
+        }
+}
+\newcommand{\domh}[4]{
+    \draw[rounded corners, thick, fill = blue!40] (#1 + #3 + .1, #2 + #4 + .1) rectangle (#1 + #3 + 2-.1, #2 + #4 + 1-.1);
+}
+
+\newcommand{\domv}[4]{
+    \draw[rounded corners, thick, fill = red!40] (#1 + #3 +.1, #2 + #4 +.1) rectangle (#1 + #3 + 1-.1, #2 + #4 + 2-.1);
+}
+
+\begin{tikzpicture}[scale = .6]
+    \plat{0}{0}{4}{3}
+    \domv{0}{0}{1}{1}
+    \plat{5}{0}{4}{3}
+    \domv{5}{0}{1}{1}
+    \domh{5}{0}{1}{0}
+    \plat{10}{0}{4}{3}
+    \domv{10}{0}{1}{1}
+    \domh{10}{0}{1}{0}
+    \domv{10}{0}{0}{0}
+    \plat{15}{0}{4}{3}
+    \domv{15}{0}{1}{1}
+    \domh{15}{0}{1}{0}
+    \domv{15}{0}{0}{0}
+    \domh{15}{0}{2}{1}
+\end{tikzpicture}
+
+\newcommand{\plato}[2]{
+    \foreach \x in {0, ..., 3}{
+            \draw (\x + #1, #2) -- (\x + #1, #2 + 2);}
+    \foreach \y in {0, ..., 2}{
+            \draw (#1, #2 + \y) -- (#1 + 3, #2 + \y);}
+    \draw (#1 + 3, #2) rectangle (#1 + 4, #2 + 1);
+}
+
+\end{document}
