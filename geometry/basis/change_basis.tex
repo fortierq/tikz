@@ -5,10 +5,10 @@
     \def\size{4}
     \def\a{.2}
 	\begin{tikzpicture}
-        \draw[arcthin] (0, 0) node[point, label=below:$r$] (r) {} --++ (\size, 0) node[label=right:$x$] {};
-        \draw[arcthin] (r) --++ (0, \size) node[label=above:$y$] {};
-        \draw[double] (r) to node[sloped, above] {$d$} (.7*\size, .7*\size) node[point, label=right:$p$] {};
-        \draw[arcthin] (\a*\size,0) arc (0:45:\a*\size);
+        \draw[->] (0, 0) node[point, label=below:$r$] (r) {} --++ (\size, 0) node[label=right:$x$] {};
+        \draw[->] (r) --++ (0, \size) node[label=above:$y$] {};
+        \draw[<->] (r) to node[sloped, above] {$d$} (.7*\size, .7*\size) node[point, label=right:$p$] {};
+        \draw[->] (\a*\size,0) arc (0:45:\a*\size);
         \node at (.15+\a*\size, .5*\a*\size) {$a$};
     \end{tikzpicture}
 

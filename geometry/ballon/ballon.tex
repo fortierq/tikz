@@ -1,0 +1,17 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+\definecolor{dkorange}{rgb}{.9, .35, .0}
+
+\begin{document}
+    \def\size{4}
+    \def\a{.2}
+	\begin{tikzpicture}
+        \draw[->] (0, 0) node[point, fill=dkorange, minimum size=.5cm] (r) {} --++ (\size, 0) node[label=right:$x$] {};
+        \draw[->] (r) --++ (0, \size) node[label=above:$y$] {};
+        \draw[thick] (r) to node[sloped, above] {$v_0$} (.7*\size, .7*\size);
+        \draw[arc, <-] (.7*\size, .7*\size) to (.9\size, .9\size);
+        \draw[->] (\a*\size,0) arc (0:45:\a*\size);
+        \node at (.15+\a*\size, .5*\a*\size) {$\alpha_0$};
+    \end{tikzpicture}
+
+\end{document}
