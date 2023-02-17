@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+
+
+\begin{minipage}{.3\textwidth}
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[automata]
+		\end{tikzpicture}
+	\caption*{$T(\emptyset)$}
+	\end{figure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[automata]
+			\node[state, initial, accepting] (q0) at (0, 0) {$0$};
+		\end{tikzpicture}
+	\caption*{$T(\epsilon)$}
+	\end{figure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[automata]
+			\node[state, initial] (q0) at (0, 0) {$0$};
+			\node[state, accepting] (q1) at (2, 0) {$1$};
+			\draw (q0) edge[above] node{$a$} (q1);
+		\end{tikzpicture}
+		\caption*{$T(a)$}
+	\end{figure}
+\end{minipage}
+
+
+
+\end{document}
