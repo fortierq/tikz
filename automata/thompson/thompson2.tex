@@ -9,7 +9,7 @@
 	\node[state] (f1) at (3, 0) {$F_1$};
 	\node[state] (i2) at (5, 0) {$I_2$};
 	\node[state, accepting] (f2) at (8, 0) {$F_2$};
-	\draw (f1) edge[above] node{$\epsilon$} (i2);
+	\draw[red, thick] (f1) edge[above] node{$\epsilon$} (i2);
 	\draw (-.75, -.75) rectangle ++(4.5,1.5);
 	\draw (4.25, -.75) rectangle ++(4.5,1.5);
 	\node at (1.5, 1) {$T(e_1)$};
