@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state, initial] (i1) at (0, 0) {$I_1$};
+	\node[state, accepting] (f1) at (3, 0) {$F_1$};
+	\node[state, initial] (i2) at (0, -2) {$I_2$};
+	\node[state, accepting] (f2) at (3, -2) {$F_2$};
+	\draw (-.75, -.75) rectangle ++(4.5,1.5);
+	\draw (-.75, -2.75) rectangle ++(4.5,1.5);
+	\node at (1.5, 1) {$T(e_1)$};
+	\node at (1.5, -3) {$T(e_2)$};
+\end{tikzpicture}
+
+\end{document}
