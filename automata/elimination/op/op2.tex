@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state] (1) {$q_1$};
+	\node[state, right of=1, draw=none] (q) {};
+	\node[state, right of=q] (2) {$q_2$};
+	\draw (1) edge[above] node{$h |  ef^*g$} (2);
+\end{tikzpicture}
+
+\end{document}
