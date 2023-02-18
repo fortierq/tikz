@@ -1,0 +1,16 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state, draw=none] (1) {};
+	\node[state, initial, left of=1] (i) {$q_i$};
+	\node[state, right of=1, draw=none] (2) {};
+	\node[state, right of=2, accepting] (f) {$q_f$};
+	\draw 
+    (i) edge[above] node{$a(bu)^*bu(au | au(bu)^*bu)$} (f);
+\end{tikzpicture}
+
+\end{document}

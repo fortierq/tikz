@@ -1,0 +1,22 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state, draw=none] (1) {};
+	\node[state, initial, left of=1] (i) {$q_i$};
+	\node[state, right of=1] (2) {$2$};
+	\node[state, right of=2, accepting] (f) {$q_f$};
+	\node[state, below of=1] (3) {$3$};
+	\draw 
+    (i) edge[left] node{$a$} (3)
+	(3) edge[left, bend left] node{$bu$} (2)
+	(2) edge[right, bend left] node{$au$} (3)
+	(3) edge[loop left] node{$bu$} (3)
+	(2) edge[loop above] node{$au$} (2)
+	(2) edge[above] node{$\epsilon$} (f);
+\end{tikzpicture}
+
+\end{document}
