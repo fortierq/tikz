@@ -1,0 +1,21 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state] (1) {$e_1$};
+	\node[state, initial, left of=1] (0) {$q_0$};
+	\node[state, right of=1, accepting] (2) {$e_2$};
+	\node[state, below of=1, accepting] (3) {$e_3$};
+	\draw (0) edge[above] node{$a$} (1)
+	(1) edge[above] node{$a$} (2)
+	(1) edge[left] node{$b$} (3)
+	(2) edge[left, bend right=10] node{$b$} (3)
+	(3) edge[right, bend right=10] node{$a$} (2)
+	(3) edge[loop right] node{$b$} (3)
+	(2) edge[loop right] node{$a$} (2);
+\end{tikzpicture}
+
+\end{document}
