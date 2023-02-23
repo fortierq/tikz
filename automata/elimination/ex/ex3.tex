@@ -10,7 +10,7 @@
 	\node[state, right of=1] (2) {$2$};
 	\node[state, right of=2, accepting] (f) {$q_f$};
 	\draw 
-    (i) edge[left] node{$a(bu)^*bu$} (2)
+    (i) edge[above] node{$a | a(bu)^*bu$} (2)
 	(2) edge[loop above] node{$au | au(bu)^*bu$} (2)
 	(2) edge[above] node{$\epsilon$} (f);
 \end{tikzpicture}
