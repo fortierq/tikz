@@ -1,0 +1,24 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style = {vertex}, level 1/.style={sibling distance=3.7cm}, level 2/.style={sibling distance=1.8cm}, , level 3/.style={sibling distance=.9cm}]
+    \node {14}
+    child { node {11} 
+        child { node {3} 
+            child { node {2} }
+            child { node {-8} } }
+        child { node {5} 
+            child { node {-2} } 
+            child { node {-4} } } }
+    child { node (7) {9}
+        child { node (6) {7} 
+            child { node {5} }
+            child { node[] (9) {6} } }
+        child { node {2} } };
+\end{tikzpicture}
+
+\end{document}
