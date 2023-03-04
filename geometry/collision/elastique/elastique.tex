@@ -1,0 +1,16 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \draw node[label=below:$p_1$, circle, fill=black, inner sep=1pt] (1) at (0,0) {};
+    \draw node[label=below:$p_2$, circle, fill=black, inner sep=1pt] (2) at (6,0) {};
+    \draw (1) circle (1cm);
+    \draw (2) circle (1.5cm);
+    \draw[arc] (1) to node[fill=white] {$v_1$} (2, 0);
+    \draw[arc] (2) to node[fill=white] {$v_2$} (4, 0);
+\end{tikzpicture}
+
+\end{document}
