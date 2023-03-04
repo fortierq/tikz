@@ -1,0 +1,19 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \node at (-.5, 0) {$(0,0)$};
+    \node at (5.5, 5) {$(h,h)$};
+    \draw (0, 0) rectangle (5, 5);
+    \draw[dashed] node[circle, fill=black, inner sep=1pt] (1) at (4,4) {};
+    \draw[dashed] (1) circle (.3cm);
+    \draw[dashed, arc] (1) to ($(1) + (.7, -.7)$);
+    \draw node[circle, fill=black, inner sep=1pt] (2) at ($(1) - (0, 1.5)$) {};
+    \draw (2) circle (.3cm);
+    \draw[arc] (2) to ($(2) + (-.7, -.7)$);
+\end{tikzpicture}
+
+\end{document}
