@@ -1,0 +1,15 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \draw node[label=below:$p_1$, circle, fill=black, inner sep=1pt] (1) at (0,0) {};
+    \draw node[label=below:$p_2$, circle, fill=black, inner sep=1pt] (2) at (4,2) {};
+    \draw (0,0) circle (1cm);
+    \draw (4,2) circle (1.5cm);
+    \draw[dashed] (1) to node[above] {$d$} (2);
+\end{tikzpicture}
+
+\end{document}
