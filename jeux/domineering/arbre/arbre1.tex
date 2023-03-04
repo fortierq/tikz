@@ -1,0 +1,89 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usepackage{code}
+
+\begin{document}
+
+\newcommand{\plat}[4]{
+    \foreach \x in {0, ..., #3}{
+            \draw (\x + #1, 0 + #2) -- (\x + #1, #2 + #4);
+        }
+    \foreach \y in {0, ..., #4}{
+            \draw (#1, #2 + \y) -- (#1 + #3, #2 + \y);
+        }
+}
+\newcommand{\domh}[4]{
+    \draw[rounded corners, thick, fill = blue!40] (#1 + #3 + .1, #2 + #4 + .1) rectangle (#1 + #3 + 2-.1, #2 + #4 + 1-.1);
+}
+
+\newcommand{\domv}[4]{
+    \draw[rounded corners, thick, fill = red!40] (#1 + #3 +.1, #2 + #4 +.1) rectangle (#1 + #3 + 1-.1, #2 + #4 + 2-.1);
+}
+
+\def\h{8}
+
+\begin{tikzpicture}
+    \plat{0}{0}{4}{4}
+    \plat{5}{0}{4}{4}
+    \plat{10}{0}{4}{4}
+    \plat{15}{0}{4}{4}
+    \plat{20}{0}{4}{4}
+    \plat{25}{0}{4}{4}
+    \plat{30}{0}{4}{4}
+    \plat{35}{0}{4}{4}
+    \plat{40}{0}{4}{4}
+    \plat{45}{0}{4}{4}
+    
+    \plat{10}{\h}{4}{4}
+    \plat{30}{\h}{4}{4}
+    \plat{42.5}{\h}{4}{4}
+    
+    \plat{22.5}{2*\h}{4}{4}
+    
+    \foreach \xs/\ys/\xd/\yd in {22.5/2*\h/12/12, 25.5/2*\h/32/12, 26.5/2*\h/44.5/12, 10/\h/2/4, 11/\h/7/4, 12/\h/12/4, 13/\h/17/4, 14/\h/22/4, 30/\h/27/4, 32/\h/32/4, 34/\h/37/4, 43.5/\h/42/4, 45.5/\h/47/4}
+    \draw[arc] (\xs, \ys) -- (\xd, \yd);
+    
+    \foreach \x in {0, ..., 9}{
+    \domv{\x * 5}{0}{1}{2}
+    \domh{\x * 5}{0}{0}{1}
+    \domh{\x * 5}{0}{2}{2}
+    }
+    
+    \foreach \x/\y in {10/\h, 30/\h, 42.5/\h, 22.5/2*\h}{
+    \domv{\x}{\y}{1}{2}
+    \domh{\x}{\y}{0}{1}
+    \domh{\x}{\y}{2}{2}
+    }
+    
+    \domv{10}{\h}{0}{2}
+    \domv{30}{\h}{3}{0}
+    \domv{42.5}{\h}{2}{0}
+    
+    \foreach \x in {0, ..., 4} {\domv{\x*5}{0}{0}{2}}
+    \foreach \x in {5, 6, 7} {\domv{\x*5}{0}{3}{0}}
+    \foreach \x in {8, 9} {\domv{\x*5}{0}{2}{0}}
+    
+    \domh{0}{0}{2}{3}
+    \domh{5}{0}{2}{1}
+    \domh{10}{0}{2}{0}
+    \domh{15}{0}{0}{0}
+    \domh{20}{0}{1}{0}
+    
+    \domh{25}{0}{2}{3}
+    \domh{30}{0}{0}{0}
+    \domh{35}{0}{1}{0}
+    
+    \domh{40}{0}{2}{3}
+    \domh{45}{0}{0}{0}
+    
+    
+    \node[scale=3] at (-2, 2) {\makecell{Alice\\(max)}};
+    \node[scale=3] at (-2, 10) {\makecell{Bob\\(min)}};
+    \node[scale=3] at (-2, 18) {\makecell{Alice\\(max)}};
+    
+    \foreach \x/\y/\s in {2/-1/-2, 7/-1/-\infty, 12/-1/-\infty, 17/-1/-1, 22/-1/-1, 27/-1/0, 32/-1/1, 37/-1/0, 42/-1/1, 47/-1/1, 15/12/-\infty, 35/12/0, 47.5/12/1, 27.5/22/1 }
+    \draw (\x, \y) node {$\s$};
+\end{tikzpicture}
+
+\end{document}
