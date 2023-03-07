@@ -1,0 +1,17 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[auto,swap]
+    \foreach \pos/\name in {{(0,0)/0},{(0,2)/1}, {(0,4)/2}, {(0,6)/3}, {(0,8)/4}, {(4,1)/5},{(4,3)/6}, {(4,5)/7}, {(4,7)/8}}
+        \node[vertex] (\name) at \pos {$\name$};
+    \foreach \source/\dest in {4/8, 4/7, 3/8, 3/5, 2/7, 1/7, 1/6, 1/5, 0/7}
+        \draw[edge] (\source) to (\dest);
+    \draw[selected edge] (4) to (8);
+    \draw[selected edge] (2) to (7);
+    \draw[selected edge] (1) to (5);
+\end{tikzpicture}
+
+\end{document}
