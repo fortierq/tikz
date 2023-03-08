@@ -1,0 +1,17 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=0.7]
+    \node[rectangle, draw, minimum width=3cm] (l1) {liste 1}; 
+    \node[rectangle, draw, minimum width=3cm, below = .5cm of l1] (l2) {liste 2}; 
+    \draw[arc] (l2) to[out = 0, in = 0] (l1.east);
+    \node[left = 1cm of l2] (A) {Ajout};
+    \draw[arc] (A) to (l2);
+    \node[left = 1cm of l1] (B) {Extraction};
+    \draw[arc] (l1) to (B);
+\end{tikzpicture}
+
+\end{document}
