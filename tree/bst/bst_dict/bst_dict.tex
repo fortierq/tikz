@@ -1,0 +1,23 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+\usepackage{code}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={vertex},level 1/.style={sibling distance=5cm},level 2/.style={sibling distance=3cm},level 3/.style={sibling distance=1cm}]
+    \node (r) {\ocaml{5,"cinq"}}
+    child {
+        node (g) {\ocaml{1,"un"}}
+        child {
+            node (gg) {\ocaml{0,"zero"}}
+        }
+        child {
+            node (gd) {\ocaml{3,"trois"}}
+        }
+    }
+    child {
+        node (d) {\ocaml{7,"sept"}}
+    };
+\end{tikzpicture}
+
+\end{document}
