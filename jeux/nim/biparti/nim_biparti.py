@@ -5,7 +5,7 @@ picture = []
 for i in range(1, 7):
     for p in range(2):
         node = f"${str(i)}_{'A' if p else 'B'}$" 
-        picture.append(f"\\node ({p}{i}) at (-1.5*{i}, {2*p}) {{{node}}};")
+        picture.append(f"\\node[vertex] ({p}{i}) at (-1.5*{i}, {2*p}) {{{node}}};")
 for p  in range(2):
     for k in range(1, 4):
         for i in range(1, 6-k+1):

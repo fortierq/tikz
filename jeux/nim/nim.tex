@@ -6,12 +6,12 @@
 \begin{document}
 
 \begin{tikzpicture}
-\node (1) at (-1.5*1,0) {1};
-\node (2) at (-1.5*2,0) {2};
-\node (3) at (-1.5*3,0) {3};
-\node (4) at (-1.5*4,0) {4};
-\node (5) at (-1.5*5,0) {5};
-\node (6) at (-1.5*6,0) {6};
+\node[vertex] (1) at (-1.5*1,0) {1};
+\node[vertex] (2) at (-1.5*2,0) {2};
+\node[vertex] (3) at (-1.5*3,0) {3};
+\node[vertex] (4) at (-1.5*4,0) {4};
+\node[vertex] (5) at (-1.5*5,0) {5};
+\node[vertex] (6) at (-1.5*6,0) {6};
 \draw[->, >=latex] (2) to[] (1);
 \draw[->, >=latex] (3) to[] (2);
 \draw[->, >=latex] (4) to[] (3);
