@@ -1,0 +1,36 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{bussproofs}
+
+\begin{document}
+
+\def\fCenter{\mbox{\ $\vdash$\ }}
+\AxiomC{}
+\RightLabel{$ax$}
+\UnaryInf$\Gamma \fCenter \neg P \vee \neg Q$
+\AxiomC{}
+\RightLabel{$ax$}
+\UnaryInf$\neg P, \Gamma \fCenter P \wedge Q$
+\RightLabel{$\wedge_{e g}$}
+\UnaryInf$\neg P, \Gamma \fCenter P$
+\AxiomC{}
+\RightLabel{$ax$}
+\UnaryInf$\neg P, \Gamma \fCenter \neg P$
+\RightLabel{$\neg_e$}
+\BinaryInf$\neg P, \Gamma \fCenter \perp$
+\AxiomC{}
+\RightLabel{$ax$}
+\UnaryInf$\neg Q, \Gamma \fCenter P \wedge Q$
+\RightLabel{$\wedge_{e d}$}
+\UnaryInf$\neg Q, \Gamma \fCenter Q$
+\AxiomC{}
+\RightLabel{$ax$}
+\UnaryInf$\neg Q, \Gamma \fCenter \neg Q$
+\RightLabel{$\neg_e$}
+\BinaryInf$\neg Q, \Gamma \fCenter \perp$
+\RightLabel{$\vee_e$}
+\TrinaryInf$\Gamma = P \wedge Q, \neg P \vee \neg Q \fCenter \perp$
+\RightLabel{$\neg_i$}
+\UnaryInf$\neg P \vee \neg Q \fCenter \neg (P \wedge Q)$
+\DisplayProof
+
+\end{document}
