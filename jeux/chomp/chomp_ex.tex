@@ -1,0 +1,101 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usepackage{code}
+
+\begin{document}
+\newcommand\choix[2]{
+    \draw[fill=black] (#1, #2) rectangle (#1+1, #2+1);
+}
+\begin{tabular}{m{.2\textwidth}m{.2\textwidth}m{.2\textwidth}m{.2\textwidth}m{.05\textwidth}m{.05\textwidth}}
+    \begin{minipage}{\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=.4]
+    \foreach \x in {0, ..., 5}
+    \draw (\x, 0) -- (\x, 4);
+    
+    \foreach \y in {0, ..., 4}
+    \draw (0, \y) -- (5, \y);
+    \choix{4}{1}
+    \draw[pattern=north west lines] (4, 0) rectangle (5, 2);
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}&
+    \begin{minipage}{\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=.4]
+    \foreach \x in {0, ..., 4}
+    \draw (\x, 0) -- (\x, 4);
+    
+    \foreach \y in {2, ..., 4}
+    \draw (0, \y) -- (5, \y);
+    
+    \foreach \y in {0, 1}
+    \draw (0, \y) -- (4, \y);
+    
+    \draw (5, 2) -- (5, 4);
+    
+    \choix{1}{0};
+    \draw[pattern=north west lines] (2, 0) rectangle (4, 1);
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}&
+    \begin{minipage}{\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=.4]
+    \foreach \x/\y in {0/0, 1/0, 2/1, 3/1, 4/1, 5/2}
+    \draw (\x, \y) -- (\x, 4);
+    
+    \foreach \y/\x in {0/1, 1/4, 2/5, 3/5, 4/5}
+    \draw (0, \y) -- (\x, \y);
+    
+    \choix{2}{2};
+    \draw[pattern=north west lines] (2, 1) rectangle (4, 2);
+    \draw[pattern=north west lines] (2, 2) rectangle (5, 3);
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}&
+    \begin{minipage}{\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=.4]
+    \foreach \x/\y in {0/0, 1/0, 2/1, 3/3, 4/3, 5/3}
+    \draw (\x, \y) -- (\x, 4);
+    
+    \foreach \y/\x in {0/1, 1/2, 2/2, 3/5, 4/5}
+    \draw (0, \y) -- (\x, \y);
+    
+    \draw (1.5, 3.5) node{$\times$};
+    \choix{1}{3};
+    \draw[pattern=north west lines] (1, 3) rectangle (5, 4);
+    \draw[pattern=north west lines] (1, 1) rectangle (2, 4);
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}&
+    \begin{minipage}{\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=.4]
+    \foreach \x/\y in {0/0, 1/0}
+    \draw (\x, \y) -- (\x, 4);
+    
+    \foreach \y/\x in {0/1, 1/1, 2/1, 3/1, 4/1}
+    \draw (0, \y) -- (\x, \y);
+    
+    \choix{0}{2};
+    \draw[pattern=north west lines] (0, 0) rectangle (1, 3);
+
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}&
+    \begin{minipage}{\linewidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=.4]
+    \draw (0, 3) rectangle (1,4);
+    \node (0) at (0, 0) {};
+    
+    \choix{0}{3};
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}
+    \end{tabular}
+
+\end{document}
