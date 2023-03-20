@@ -31,27 +31,26 @@
 \begin{tikzpicture}[level distance=15mm,
     level 1/.style={sibling distance=3cm},
     level 2/.style={sibling distance=1.5cm}]
-\node (r) { \begin{tikzpicture}[scale=.4]
+\node[circle, draw] (r) { \begin{tikzpicture}[scale=.4]
     \foreach \x in {0, ..., 2} {
         \draw (\x, 0) -- (\x, 2);
         \draw (0, \x) -- (2, \x);
     }
     \end{tikzpicture}
 }
-child { node {\ga} }
+child { node[circle, draw] {\ga} }
 child { node {\gb} 
     child {node {\ga}}
 }
 child { node {\gc} 
     child {node {\ga}}
 }
-child { node {\gd} 
-    child {node {\ga}}
-    child {node {\gb}
-        child {node {\ga} }
+child { node[circle, draw] {\gd} 
+    child {node[circle, draw] {\gb}
+        child {node[circle, draw] {\ga} }
     }
-    child {node {\gc}
-        child {node {\ga} }
+    child {node[circle, draw] {\gc}
+        child {node[circle, draw] {\ga} }
     }
 };
 \node at (-6, 0) {Alice};
