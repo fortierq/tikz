@@ -1,0 +1,26 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usetikzlibrary{decorations.pathreplacing}
+
+\begin{document}
+
+\newcommand{\gear}[5]{%
+    \foreach \i in {1,...,#1} {%
+            [rotate=(\i-1)*360/#1]  (0:#2)  arc (0:#4:#2) {[rounded corners=1.5pt]
+                    -- (#4+#5:#3)  arc (#4+#5:360/#1-#5:#3)} --  (360/#1:#2)
+        }}
+
+\begin{tikzpicture}
+    \node (E) at (-4.5, 0.5) {Entrée(s)};
+    \draw [draw] (-2,-1.5) rectangle (2,2.5);
+    \draw[thick, scale = 0.5] \gear{10}{2}{2.4}{15}{2};
+    \draw[thick] (0, 0) circle (.5);
+    \node (S) at (4, 0.5) {Sortie};
+    \draw[->, >=latex] (-3.7, 1) to (-2, 1);
+    \draw[->, >=latex] (-3.7, 0) to (-2, 0);
+    \draw[->, >=latex] (2, 0.5) to (S);
+    \node at (0, 1.8) {Fonction};
+\end{tikzpicture}
+
+\end{document}
