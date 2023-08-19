@@ -1,0 +1,39 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{draw}
+
+\begin{document}
+
+\tikzset
+{
+    subtree/.style  = {isosceles triangle, draw=black, align=center, minimum height=0.5cm, minimum width=1cm, shape border rotate=90, anchor=north}
+}
+
+\begin{tikzpicture}[every node/.style={vertex}, level 1/.style={sibling distance=4cm}, level 2/.style={sibling distance=2cm}, level 3/.style={sibling distance=1cm}, emph/.style={edge from parent/.style={red,very thick,draw}}, norm/.style={vertex, thin, black, edge from parent/.style={black,thin,draw}}]
+    \node[label=above:{$s$}] (r) {$4$}
+    child[emph] {
+        node (g) {$0$}
+        child[norm] {
+            node (gg) {$0$}
+        }
+        child {
+            node[vertex, thin, black] (gd) {$2$}
+            child[vertex, thin, black] {node {$2$}}
+            child[norm] {node {$4$}}
+        }
+    }
+    child[emph] {
+        node (d) {$6$}
+        child[norm] {
+            node (dg) {$5$}
+            child {node {$5$}}
+            child {node {$6$}}
+        }
+        child[emph, vertex, thin, black] {
+            node (dd) {$8$}
+            child[emph, vertex, thin, black] {node {$8$}}
+            child[norm] {node {$9$}}
+        }
+    };
+\end{tikzpicture}
+
+\end{document}
