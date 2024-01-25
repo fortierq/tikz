@@ -5,8 +5,10 @@
 \begin{document}
 
 \begin{tikzpicture}[automata]
-	\node[state, initial] (i1) at (0, 0) {$I_1$};
+	\node[state, initial] (qi) at (-2, 0) {$q_i$};
+	\node[state] (i1) at (0, 0) {$I_1$};
 	\node[state, accepting] (f1) at (3, 0) {$F_1$};
+    \draw (qi) edge[above] node{$\epsilon$} (i1);
 	\draw[red, thick] (f1) edge[below, bend left=60] node{$\epsilon$} (i1);
 	\draw (-.75, -.75) rectangle ++(4.5,1.5);
 	\node at (1.5, 1) {$T(e_1)$};
