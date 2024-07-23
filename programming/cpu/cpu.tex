@@ -1,0 +1,43 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \draw (0, 0) rectangle (7, 2);
+    \node at (3.5, 1.5) {\underline{Processeur}};
+    \node[] (c1) at (1, .5) {Cœur 1};
+    \node (c2) at (3.5, .5) {Cœur 2};
+    \node (c3) at (6, .5) {Cœur 3};
+
+    \draw[dashed] (0, -9) rectangle (7, -1);
+    \node (p) at (3.5, -1.5) {\underline{Processus}};
+    \node (t1) at (1, -2.5) {Thread 1};
+    \node (t2) at (6, -2.5) {Thread 2};
+    \node (m) at (3.5, -4) {Mémoire virtuelle};
+    
+    \draw[arc] (c1.south) to (t1.north);
+    \draw[arc] (c2.south) to (p.north);
+    \draw[arc] (c3.south) to (t2.north);
+    \draw[arc, <->, dashed] (p.south) to (m.north);
+    \draw[arc, <->, dashed] (t1.south east) to (m.north west);
+    \draw[arc, <->, dashed] (t2.south west) to (m.north east);
+    \draw[arc] (p.south west) to (t1.north east);
+    \draw[arc] (p.south east) to (t2.north west);
+    \node at (3.5, -5.1) {Programme};
+    \node[] at (3.5, -7.1) {
+            \begin{code}{c}
+#include <pthread.h>
+
+int main() {
+    pthread_t t1, t2;
+    pthread_create(&t1, NULL, f, NULL);
+    pthread_create(&t2, NULL, g, NULL);
+    ...
+}
+            \end{code}
+    };
+\end{tikzpicture}
+
+\end{document}
