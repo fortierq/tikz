@@ -1,4 +1,4 @@
-include /workspaces/src/.env
+include ./.env
 export
 run:
 	python main.py ${TOKEN}

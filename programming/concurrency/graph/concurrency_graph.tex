@@ -1,0 +1,28 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[->, >=stealth, every node/.style={draw}]
+    \node (t1) at (0, 0) {Créer t1};
+    \node[right=1cm of t1] (t2) {Créer t2};
+    \node[right=1cm of t2] (join1) {Join t1};
+    \node[right=1cm of join1] (join2) {Join t2};
+    \node[below=1cm of t1] (t10) {Afficher 1 0};
+    \node[right=.8cm of t10] (t11) {Afficher 1 1};
+    \node[right=.8cm of t11] (t12) {Afficher 1 2};
+    \node[below=1cm of t10] (t20) {Afficher 2 0};
+    \node[right=.8cm of t20] (t21) {Afficher 2 1};
+    \node[right=.8cm of t21] (t22) {Afficher 2 2};
+    \draw (t1) edge (t2) (t2) edge (join1) (join1) edge (join2);
+    \draw (t10) edge (t11) (t11) edge (t12);
+    \draw (t20) edge (t21) (t21) edge (t22);
+    \node[draw=none, left=1cm of t1, minimum size=0, inner sep=0pt, outer sep=0pt] (p1){};
+    \node[draw=none, below=1.5cm of p1, minimum size=0, inner sep=0pt, outer sep=0pt] (p2){};
+    \draw (t1) to (t10);
+    \draw (t2) |- (-2, -.75) |- (t20);
+    \draw (t12) -- (join1);
+    \draw (t22) -| (join2);
+\end{tikzpicture}
+\end{document}
