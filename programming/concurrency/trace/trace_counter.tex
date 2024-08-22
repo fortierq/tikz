@@ -6,8 +6,8 @@
 \begin{document}
 
 \begin{tikzpicture}[every node/.style={draw}, node distance=0, minimum height=.75cm]
-    \node[] (a) at (0, 0) {\cpp{counter = 0;}};
-    \node[right=of a] (b) {\cpp{tmp = counter};};
+    % \node[] (a) at (0, 0) {\cpp{counter = 0;}};
+    \node[] (b) at (0, 0) {\cpp{tmp = counter};};
     \node[draw=none, below=of b] (b1) {1};
     \node[right=of b] (c) {\cpp{tmp = counter};};
     \node[draw=none, below=of c] {2};
