@@ -1,0 +1,41 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usetikzlibrary{decorations.pathreplacing}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={draw}, node distance=0, minimum height=.75cm]
+    \node[] (a) at (0, 0) {\cpp{counter = 0;}};
+    \node[right=of a] (b) {\cpp{tmp = counter};};
+    \node[draw=none, below=of b] (b1) {1};
+    \node[right=of b] (c) {\cpp{tmp = counter};};
+    \node[draw=none, below=of c] {2};
+    \node[right=of c] (d) {\cpp{tmp = tmp + 1;}};
+    \node[draw=none, below=of d] {2};
+    \node[right=of d] (e) {\cpp{counter = tmp;}};
+    \node[draw=none, below=of e] {2};
+    \node[right=of e] (f) {\cpp{tmp = tmp + 1;}};
+    \draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=.1cm}]
+  (e.north east) -- (c.north west) node[draw=none, midway, yshift=.5cm]{Répété $n - 1$ fois}; 
+    \node[draw=none, below=of f] {1};
+    \node[right=of f] (g) {\cpp{counter = tmp;}};
+    \node[draw=none, below=of g] {1};
+
+    \node[] (h) at (0, -3) {\cpp{tmp = counter;}};
+    \node[draw=none, below=of h] {2};
+    \node[right=of h] (i) {\cpp{tmp = counter};};
+    \node[draw=none, below=of i] {1};
+    \node[right=of i] (j) {\cpp{tmp = tmp + 1;}};
+    \node[draw=none, below=of j] {1};
+    \node[right=of j] (k) {\cpp{counter = tmp;}};
+    \node[draw=none, below=of k] {1};
+    \draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=.1cm}] (k.north east) -- (i.north west) node[draw=none, midway, yshift=.5cm]{Répété $n - 1$ fois};
+    \node[draw=none, below=of k] {1};
+    \node[right=of k] (l) {\cpp{tmp = tmp + 1;}};
+    \node[draw=none, below=of l] {2};
+    \node[right=of l] (m) {\cpp{counter = tmp;}};
+    \node[draw=none, below=of m] {2};
+
+\end{tikzpicture}
+\end{document}
