@@ -1,0 +1,16 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={draw}, node distance=0, minimum height=.75cm]
+    \node (a) {Créer t1};
+    \node[right=of a] (b) {Afficher 1 0};
+    \node[right=of b] (c) {Créer t2};
+    \node[right=of c] (d) {Afficher 2 0};
+    \node[right=of e] (f) {Afficher 2 1};
+    \node[right=of d] (e) {Afficher 1 1};
+    \node[draw=none, right=of f] (g) {...};
+\end{tikzpicture}
+\end{document}
