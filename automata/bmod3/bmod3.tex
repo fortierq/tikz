@@ -1,0 +1,20 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[automata]
+	\node[state, initial] (q1) at (0, 0) {$0$};
+	\node[state] (q2) at (2, 2) {$1$};
+	\node[state, accepting] (q3) at (4, 0) {$2$};
+
+	\draw (q1) edge[loop below] node[fill=white]{$0$} (q1)
+	(q1) edge[] node[fill=white]{$1$} (q2)
+	(q2) edge[loop above] node[fill=white]{$0$} (q2)
+	(q2) edge[] node[fill=white]{$1$} (q3)
+	(q3) edge[loop below] node[fill=white]{$0$} (q3)
+	(q3) edge[] node[fill=white]{$1$} (q1);
+\end{tikzpicture}
+
+\end{document}
