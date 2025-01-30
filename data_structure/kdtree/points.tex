@@ -1,0 +1,21 @@
+\documentclass[]{article}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=.8]
+    \foreach \x/\y/\n/\pos in {3/2/0/right, 8/7/1/right, 13/2/2/right, 10/3/3/above, 7/4/4/below, 11/5/5/right, 12/8/6/above, 1/6/7/above, 5/9/8/right}{
+        \node[fill, minimum size=5pt, inner sep=0pt, circle] (\n) at (\x, \y) {}; 
+        \draw (\n) node  [\pos] {$p_{\n}$};
+    }
+    \draw[->, >=stealth] (0, 0) -- (15, 0) node[below] {$x$};
+    \draw[->, >=stealth] (0, 0) -- (0, 10) node[left] {$y$};
+    \foreach \x/\ys/\yd in {8/0/10, 3/0/6, 11/3/10}
+    \draw[dashed] (\x, \ys) -- (\x, \yd);
+    
+    \foreach \xs/\xd/\y in {0/8/6, 8/15/3}
+    \draw[dashed] (\xs, \y) -- (\xd, \y);
+\end{tikzpicture}
+
+\end{document}

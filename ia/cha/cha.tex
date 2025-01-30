@@ -7,14 +7,22 @@
 \begin{frame}
     \begin{figure}
         \centering
-    \begin{tikzpicture}[scale=0.6]
-        \draw[->, >=stealth] (-.5, .5) -- (11, .5);
-        \draw[->, >=stealth] (0, -.5) -- (0, 8);
+    \begin{tikzpicture}[scale=0.58]
+        \draw[->, >=stealth] (0, .5) -- (11, .5);
+        \draw[->, >=stealth] (0, .5) -- (0, 8);
         \begin{scope}[xshift=-1cm]
-        \foreach \x/\y/\n in {11/6/1, 5/7/2, 4/5/3, 5/1/4, 10/4/5, 10/1/6, 4/2/7, 2/2/8, 7/7/9}{
+        \foreach \x/\y/\n in {10/6/1, 4/7/2, 3/5/3, 5/1/4, 9/4/5, 9/1/6, 4/2/7, 2/2/8, 5/8/9}{
         \node[fill, minimum size=3pt, inner sep=0pt, circle] (\n) at (\x,\y) {};
-        \draw(\n) node[above]{$x_{\n}$};
-        }
+        \draw(\n) node[right]{$x_{\n}$};
+       }
+        \draw[visible on=<2-3>, rotate around = {45:(4.5, 7.5)}] (4.5, 7.5) ellipse (1.5 and .75);
+        \draw[visible on=<2>, rotate around = {-45:(4.5, 1.5)}] (4.5, 1.5) ellipse (1.5 and .75);
+        \draw[visible on=<3-5>, rotate around = {-20:(3.67, 1.67)}] (3.67, 1.67)  ellipse (2.25 and 1.125);
+        \draw[visible on=<4>, rotate around = {60:(9.5, 5)}] (9.5, 5) ellipse (2 and 1);
+        \draw[visible on=<4-5>, rotate around = {60:(4, 6.67)}] (4, 6.67)  ellipse (2.5 and 1.25);
+        \draw[visible on=<5-6>, rotate around = {80:(9.33, 3.67)}] (9.33, 3.67)  ellipse (3 and 1.5);
+        \draw[visible on=<6>, rotate around = {85:(4.15, 4.25)}] (4.15, 4.25)  ellipse (4 and 2.5);
+        \draw[visible on=<7->] (6, 4.15)  ellipse (5 and 4);
         \end{scope}
         \end{tikzpicture}
      \end{figure}
@@ -26,14 +34,14 @@
         \foreach \x/\n in {1/2, 2/9, 3/3, 4/4, 5/7, 6/8, 7/1, 8/5, 9/6}
         \draw (\x, .1) -- (\x, -.1) node[below] {$x_{\n}$};
         
-        \draw (1, 0) -- (1, 1) -- (2, 1) -- (2, 0);
-        \draw (4, 0) -- (4, 1) -- (5, 1) -- (5, 0);
-        \draw (4.5, 1) -- (4.5, 3) -- (6, 3) -- (6, 0);
-        \draw (1.5, 1) -- (1.5, 2) -- (3, 2) -- (3, 0);
-        \draw (7, 0) -- (7, 2) -- (8, 2) -- (8, 0);
-        \draw (7.5, 2) -- (7.5, 5) -- (9, 5) -- (9, 0);
-        \draw (2.25, 2) -- (2.25, 2*2) -- (5.25, 2*2) -- (5.25, 3);
-        \draw (3.75, 2*2) -- (3.75, 6) -- (8.25, 6) -- (8.25, 5);
+        \draw[visible on=<2->] (1, 0) -- (1, 1) -- (2, 1) -- (2, 0);
+        \draw[visible on=<2->] (4, 0) -- (4, 1) -- (5, 1) -- (5, 0);
+        \draw[visible on=<3->] (4.5, 1) -- (4.5, 2) -- (6, 2) -- (6, 0);
+        \draw[visible on=<4->] (1.5, 1) -- (1.5, 3) -- (3, 3) -- (3, 0);
+        \draw[visible on=<4->] (7, 0) -- (7, 3) -- (8, 3) -- (8, 0);
+        \draw[visible on=<5->] (7.5, 3) -- (7.5, 4) -- (9, 4) -- (9, 0);
+        \draw[visible on=<6->] (2.25, 3) -- (2.25, 5) -- (5.25, 5) -- (5.25, 2);
+        \draw[visible on=<7->] (3.75, 5) -- (3.75, 6) -- (8.25, 6) -- (8.25, 4);
         \end{tikzpicture}
      \end{figure}
         

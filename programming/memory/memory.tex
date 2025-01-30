@@ -10,7 +10,7 @@
 
 \begin{tikzpicture}[]
     \draw (0,0) rectangle (\w, \h);
-    \foreach \y/\t in {0/code, 1/variables globales, 2/tas (heap), 3/, 4/pile (stack)} {
+    \foreach \y/\t in {0/programme, 1/variables globales, 2/tas (heap), 3/, 4/pile (stack)} {
             \draw (0, \y*\h/5) to (\w, \y*\h/5);
             \node at (\w/2, \y*\h/5 + \h/10) {\t};
         }

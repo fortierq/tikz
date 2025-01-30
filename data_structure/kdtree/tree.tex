@@ -1,0 +1,41 @@
+\documentclass[]{article}
+\usepackage{base}
+\usepackage{draw}
+
+\begin{document}
+
+\begin{tikzpicture}[level distance=15mm,
+    level 1/.style={sibling distance=4cm},
+    level 2/.style={sibling distance=2cm},
+    level 3/.style={sibling distance=1cm}]
+\node {$p_1$}
+child {
+    node {$p_7$}
+    child {
+        node {$p_0$}
+        child[missing]
+        child {
+            node {$p_4$}
+        }
+    }
+    child {
+        node {$p_8$}
+    }
+}
+child {
+    node {$p_3$}
+    child {
+        node {$p_2$}
+    }
+    child {
+        node {$p_5$}
+        child[missing]
+        child {
+            node {$p_6$}
+        }
+    }
+};
+
+\end{tikzpicture}
+
+\end{document}
