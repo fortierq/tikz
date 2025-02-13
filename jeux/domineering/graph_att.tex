@@ -1,0 +1,52 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+\usepackage{draw}
+\usepackage{code}
+
+\begin{document}
+
+\newcommand{\plat}[4]{
+    \foreach \x in {0, ..., #3}{
+            \draw (\x + #1, 0 + #2) -- (\x + #1, #2 + #4);
+        }
+    \foreach \y in {0, ..., #4}{
+            \draw (#1, #2 + \y) -- (#1 + #3, #2 + \y);
+        }
+}
+\newcommand{\domh}[4]{
+    \draw[rounded corners, thick, fill = blue!40] (#1 + #3 + .1, #2 + #4 + .1) rectangle (#1 + #3 + 2-.1, #2 + #4 + 1-.1);
+}
+
+\newcommand{\domv}[4]{
+    \draw[rounded corners, thick, fill = red!40] (#1 + #3 +.1, #2 + #4 +.1) rectangle (#1 + #3 + 1-.1, #2 + #4 + 2-.1);
+}
+
+\newcommand{\plato}[2]{
+    \foreach \x in {0, ..., 3}{
+            \draw (\x + #1, #2) -- (\x + #1, #2 + 2);}
+    \foreach \y in {0, ..., 2}{
+            \draw (#1, #2 + \y) -- (#1 + 3, #2 + \y);}
+    \draw (#1 + 3, #2) rectangle (#1 + 4, #2 + 1);
+}
+
+\begin{tikzpicture}
+    \foreach \z/\t in {12.5/0, 0/4, 5/4, 10/4, 15/4, 20/4, 25/4, 5/8, 15/8, 22.5/8, 13.75/12}{
+    \plato{\z}{\t}
+    }
+    
+    \foreach \xp/\yp/\xd/\yd in {0/4/1/1, 5/4/1/0, 10/4/2/0, 15/4/2/0, 20/4/0/1, 25/4/0/0, 12.5/0/2/0}{
+    \domh{\xp}{\yp}{\xd}{\yd}
+    }
+    
+    \foreach \xp/\yp/\xd/\yd in {12.5/0/0/0, 12.5/0/1/0, 0/4/0/0, 5/4/0/0, 10/4/0/0, 15/4/1/0, 20/4/2/0, 25/4/2/0, 5/8/0/0, 15/8/1/0, 22.5/8/2/0}{
+    \domv{\xp}{\yp}{\xd}{\yd}
+    }
+    
+    \foreach \xs/\ys/\xd/\yd in {13.75/12/8/10, 15.75/12/17/10, 17.75/12/22.5/10, 5/8/3/6, 7/8/7/6, 9/8/10/6, 17/8/17/6, 22.5/8/22/6, 25.5/8/27/6, 12/4/12.5/2, 16/4/15.5/2}
+    \draw[arc] (\xs, \ys) to (\xd, \yd);
+    
+    % \foreach \x/\y/\n in {12.5/0/1, 0/4/2, 5/4/2, 10/4/1, 15/4/1, 20/4/2, 25/4/2, 5/8/2, 15/8/1, 22.5/8/2, 13.75/12/1}
+    % \draw (\x+3.5, \y+1.5) node {$\n$};
+\end{tikzpicture}
+
+\end{document}
