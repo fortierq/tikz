@@ -1,0 +1,9 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+\begin{prooftree}
+  \hypo{\Gamma \vdash A[x:=t]}
+  \infer1[$\exists_i$]{\Gamma \vdash \exists x\, A}
+\end{prooftree}
+\end{document}

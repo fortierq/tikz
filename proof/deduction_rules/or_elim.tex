@@ -1,0 +1,11 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+\begin{prooftree}
+  \hypo{\Gamma, A \vdash C}
+  \hypo{\Gamma, B \vdash C}
+  \hypo{\Gamma \vdash A \lor B}
+  \infer3[]{\Gamma \vdash C}
+\end{prooftree}
+\end{document}

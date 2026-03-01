@@ -1,0 +1,11 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+Si $x$ n'est pas une variable libre de $B$ ni de $\Gamma$ :
+\begin{prooftree}
+  \hypo{\Gamma \vdash \exists x\, A}
+  \hypo{\Gamma, A \vdash B}
+  \infer2[$\exists_e$]{\Gamma \vdash B}
+\end{prooftree}
+\end{document}

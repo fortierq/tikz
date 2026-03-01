@@ -1,0 +1,9 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+\begin{prooftree}
+  \hypo{\Gamma, \neg A \vdash \bot}
+  \infer1[raa]{\Gamma \vdash A}
+\end{prooftree}
+\end{document}

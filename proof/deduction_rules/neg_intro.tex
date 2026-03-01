@@ -1,0 +1,9 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+\begin{prooftree}
+  \hypo{\Gamma, A \vdash \bot}
+  \infer1[$\neg_i$]{\Gamma \vdash \neg A}
+\end{prooftree}
+\end{document}

@@ -1,0 +1,10 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+\begin{prooftree}
+  \hypo{\Gamma \vdash A \rightarrow B}
+  \hypo{\Gamma \vdash A}
+  \infer2[$\rightarrow_e$]{\Gamma \vdash B}
+\end{prooftree}
+\end{document}

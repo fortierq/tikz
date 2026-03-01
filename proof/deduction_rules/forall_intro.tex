@@ -1,0 +1,10 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+Si $x$ n'est pas une variable libre de $\Gamma$ :
+\begin{prooftree}
+  \hypo{\Gamma \vdash A}
+  \infer1[$\forall_i$]{\Gamma \vdash \forall x\, A}
+\end{prooftree}
+\end{document}

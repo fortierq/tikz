@@ -1,0 +1,9 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+\begin{prooftree}
+  \hypo{\Gamma \vdash A \land B}
+  \infer1[$\land_e^d$]{\Gamma \vdash B}
+\end{prooftree}
+\end{document}

@@ -1,0 +1,9 @@
+\documentclass[convert={outfile=\jobname.png}]{standalone}
+\usepackage{base}
+
+\begin{document}
+\begin{prooftree}
+  \hypo{\Gamma \vdash B}
+  \infer1[$\lor_i^d$]{\Gamma \vdash A \lor B}
+\end{prooftree}
+\end{document}
