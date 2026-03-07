@@ -2,9 +2,9 @@
 \usepackage{base}
 
 \begin{document}
-Si $A$ n'a pas de variable liée en commun avec $t$ :
+Si $X$ n'a pas de variable liée en commun avec $t$ :
 \begin{prooftree}
-  \hypo{\Gamma \vdash \forall x\, A}
-  \infer1[$\forall_e$]{\Gamma \vdash A[x:=t]}
+  \hypo{\Gamma \vdash \forall x\, X}
+  \infer1[$\forall_e$]{\Gamma \vdash X[x:=t]}
 \end{prooftree}
 \end{document}

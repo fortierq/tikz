@@ -2,10 +2,10 @@
 \usepackage{base}
 
 \begin{document}
-Si $x$ n'est pas une variable libre de $B$ ni de $\Gamma$ :
+Si $x$ n'est pas une variable libre de $Y$ ni de $\Gamma$ :
 \begin{prooftree}
-  \hypo{\Gamma \vdash \exists x\, A}
-  \hypo{\Gamma, A \vdash B}
-  \infer2[$\exists_e$]{\Gamma \vdash B}
+  \hypo{\Gamma \vdash \exists x\, X}
+  \hypo{\Gamma, X \vdash Y}
+  \infer2[$\exists_e$]{\Gamma \vdash Y}
 \end{prooftree}
 \end{document}
